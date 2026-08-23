@@ -33,7 +33,6 @@ noSpaces=false
 noCapitals=false
 normalizer=none
 gain=album
-gainTagsOnly=false
 metadataProvider=gnudb
 firstHit=true
 site=http://gnudb.gnudb.org/~cddb/cddb.cgi
