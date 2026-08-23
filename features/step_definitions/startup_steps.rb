@@ -29,7 +29,7 @@ end
 
 When /I run rubyripper in cli mode\s*/ do
   @file = File.expand_path("#{File.dirname(__FILE__)}/../testdata/settings")
-  run_interactive "rubyripper_cli --testdisc #{@testdisc} --file #{@file}"
+  run_command "rubyripper_cli --testdisc #{@testdisc} --file #{@file}"
 end
 
 When /^I choose "([^"]*)"\s*/ do |menuOption|
