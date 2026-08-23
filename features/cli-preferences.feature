@@ -19,7 +19,7 @@ Feature: Manage rubyripper preferences
      5) Other
     99) Don't change any setting
 
-    Please type the number of the setting you wish to change [99] : 
+    Please type the number of the setting you wish to change [99] :
     """
 
   Scenario: Show the Secure Ripping submenu
@@ -43,283 +43,282 @@ Feature: Manage rubyripper preferences
      9) Only keep log when errors [ ]
     99) Back to settings main menu
 
-    Please type the number of the setting you wish to change [99] : 
+    Please type the number of the setting you wish to change [99] :
     """
-    
-    Scenario: Update the Secure Ripping Preferences
-      When I choose "1" in order to get to the preferences menu
-      And I choose "1" in order to get to the secure ripping submenu
-      And I change each preferences item in the menu
-        | 1 | /dev/dvdrom |
-        | 2 | 100         |
-        | 3 |             |
-        | 4 | -Z -Y       |
-        | 5 | 3           |
-        | 6 | 4           |
-        | 7 | 8           |
-        | 8 |             |
-        | 9 |             |
-      And I press ENTER "3" times to close the application
-      Then the output should contain:
-      """
-      *** SECURE RIPPING PREFERENCES ***
 
-       1) Ripping drive: /dev/dvdrom
-       2) Drive offset: 100
-          **Find your offset at http://www.accuraterip.com/driveoffsets.htm.
-          **Your drive model is shown in the logfile.
-       3) Pad missing lead-in/lead-out samples with zeroes [ ]
-       4) Passing extra cdparanoia parameters: -Z -Y
-       5) Match all chunks: 3
-       6) Match erroneous chunks: 4
-       7) Maximum trials: 8
-       8) Eject disc after ripping [ ]
-       9) Only keep log when errors [*]
-      99) Back to settings main menu
+  Scenario: Update the Secure Ripping Preferences
+    When I choose "1" in order to get to the preferences menu
+    And I choose "1" in order to get to the secure ripping submenu
+    And I change each preferences item in the menu
+      | 1 | /dev/dvdrom |
+      | 2 | 100         |
+      | 3 |             |
+      | 4 | -Z -Y       |
+      | 5 | 3           |
+      | 6 | 4           |
+      | 7 | 8           |
+      | 8 |             |
+      | 9 |             |
+    And I press ENTER "3" times to close the application
+    Then the output should contain:
+    """
+    *** SECURE RIPPING PREFERENCES ***
 
-      Please type the number of the setting you wish to change [99] : 
-      """
+     1) Ripping drive: /dev/dvdrom
+     2) Drive offset: 100
+        **Find your offset at http://www.accuraterip.com/driveoffsets.htm.
+        **Your drive model is shown in the logfile.
+     3) Pad missing lead-in/lead-out samples with zeroes [ ]
+     4) Passing extra cdparanoia parameters: -Z -Y
+     5) Match all chunks: 3
+     6) Match erroneous chunks: 4
+     7) Maximum trials: 8
+     8) Eject disc after ripping [ ]
+     9) Only keep log when errors [*]
+    99) Back to settings main menu
 
-    Scenario: Show the Toc Analysis submenu
-      When I choose "1" in order to get to the preferences menu
-      And I choose "2" in order to get to the toc analysis submenu
-      And I press ENTER "3" times to close the application
-      Then the output should contain:
-      """
-      *** TOC ANALYSIS PREFERENCES ***
+    Please type the number of the setting you wish to change [99] :
+    """
 
-       1) Create a cuesheet [ ]
-       2) Rip to single file [ ]
-       3) Rip hidden audio sectors [*]
-       4) Mark as a hidden track when longer than: 2 second(s)
-       5) Append or prepend audio: prepend
-       6) Way to handle pre-emphasis: cue
-      99) Back to settings main menu
+  Scenario: Show the Toc Analysis submenu
+    When I choose "1" in order to get to the preferences menu
+    And I choose "2" in order to get to the toc analysis submenu
+    And I press ENTER "3" times to close the application
+    Then the output should contain:
+    """
+    *** TOC ANALYSIS PREFERENCES ***
 
-      Please type the number of the setting you wish to change [99] :
-      """
-      
-    Scenario: Update the Toc Analysis Preferences
-      When I choose "1" in order to get to the preferences menu
-      And I choose "2" in order to get to the toc analysis submenu
-      And I change each preferences item in the menu
-        | 1 |             |
-        | 2 |             |
-        | 3 |             |
-        | 4 | 3           |
-        | 5 | 2           |
-        | 6 | 2           |
-      And I press ENTER "3" times to close the application
-      Then the output should contain:
-      """
-      *** TOC ANALYSIS PREFERENCES ***
+     1) Create a cuesheet [ ]
+     2) Rip to single file [ ]
+     3) Rip hidden audio sectors [*]
+     4) Mark as a hidden track when longer than: 2 second(s)
+     5) Append or prepend audio: prepend
+     6) Way to handle pre-emphasis: cue
+    99) Back to settings main menu
 
-       1) Create a cuesheet [*]
-       2) Rip to single file [*]
-       3) Rip hidden audio sectors [ ]
-       4) Mark as a hidden track when longer than: 3 second(s)
-       5) Append or prepend audio: append
-       6) Way to handle pre-emphasis: sox
-      99) Back to settings main menu
+    Please type the number of the setting you wish to change [99] :
+    """
 
-      Please type the number of the setting you wish to change [99] : 
-      """
+  Scenario: Update the Toc Analysis Preferences
+    When I choose "1" in order to get to the preferences menu
+    And I choose "2" in order to get to the toc analysis submenu
+    And I change each preferences item in the menu
+      | 1 |   |
+      | 2 |   |
+      | 3 |   |
+      | 4 | 3 |
+      | 5 | 2 |
+      | 6 | 2 |
+    And I press ENTER "3" times to close the application
+    Then the output should contain:
+    """
+    *** TOC ANALYSIS PREFERENCES ***
 
-    Scenario: Show the Codecs submenu
-      When I choose "1" in order to get to the preferences menu
-      And I choose "3" in order to get to the codecs submenu
-      And I press ENTER "3" times to close the application
-      Then the output should contain:
-      """
-      *** CODEC PREFERENCES ***
+     1) Create a cuesheet [*]
+     2) Rip to single file [*]
+     3) Rip hidden audio sectors [ ]
+     4) Mark as a hidden track when longer than: 3 second(s)
+     5) Append or prepend audio: append
+     6) Way to handle pre-emphasis: sox
+    99) Back to settings main menu
 
-       1) FLAC [ ]
-       2) FLAC options passed: --best -V
-       3) Vorbis [*]
-       4) Oggenc options passed: -q 4
-       5) LAME mp3 [ ]
-       6) LAME options passed: -V 3 --id3v2-only
-       7) Nero AAC [ ]
-       8) Nero options passed: -q 0.5
-       9) Fraunhofer AAC [ ]
-      10) Fraunhofer options passed: -p 2 -m 5 -a 1
-      11) WavPack [ ]
-      12) WavPack options passed: -q
-      13) Opus [ ]
-      14) Opus options passed: --bitrate 160
-      15) WAVE [ ]
-      16) Other codec [ ]
-      17) Commandline passed: flac %i %o.flac
-      18) Playlist support [*]
-      19) Maximum extra encoding threads: 2
-      20) Replace spaces with underscores [ ]
-      21) Downsize all capital letters in file names [ ]
-      22) Normalize program: none
-      23) Normalize modus: album
-      99) Back to settings main menu
+    Please type the number of the setting you wish to change [99] :
+    """
 
-      Please type the number of the setting you wish to change [99] : 
-      """
+  Scenario: Show the Codecs submenu
+    When I choose "1" in order to get to the preferences menu
+    And I choose "3" in order to get to the codecs submenu
+    And I press ENTER "3" times to close the application
+    Then the output should contain:
+    """
+    *** CODEC PREFERENCES ***
 
-    Scenario: Update the Codecs Preferences
-      When I choose "1" in order to get to the preferences menu
-      And I choose "3" in order to get to the codecs submenu
-      And I change each preferences item in the menu
-        | 1  |                    |
-        | 2  | --fast -V          |
-        | 3  |                    |
-        | 4  | -q 5               |
-        | 5  |                    |
-        | 6  | -V 4               |
-        | 7  |                    |
-        | 8  | -q 0.6             |
-        | 9  |                    |
-        | 10 | -p 3 -m 4 -a 2     |
-        | 11 |                    |
-        | 12 | -f                 |
-        | 13 |                    |
-        | 14 | --bitrate 200      |
-        | 15 |                    |
-        | 16 |                    |
-        | 17 | lame "%i" "%o".mp3 |
-        | 18 |                    |
-        | 19 | 3                  |
-        | 20 |                    |
-        | 21 |                    |
-        | 22 | 2                  |
-        | 23 | 2                  |
+     1) FLAC [ ]
+     2) FLAC options passed: --best -V
+     3) Vorbis [*]
+     4) Oggenc options passed: -q 4
+     5) LAME mp3 [ ]
+     6) LAME options passed: -V 3 --id3v2-only
+     7) Nero AAC [ ]
+     8) Nero options passed: -q 0.5
+     9) Fraunhofer AAC [ ]
+    10) Fraunhofer options passed: -p 2 -m 5 -a 1
+    11) WavPack [ ]
+    12) WavPack options passed: -q
+    13) Opus [ ]
+    14) Opus options passed: --bitrate 160
+    15) WAVE [ ]
+    16) Other codec [ ]
+    17) Commandline passed: flac %i %o.flac
+    18) Playlist support [*]
+    19) Maximum extra encoding threads: 2
+    20) Normalize program: none
+    21) Normalize modus: album
+    99) Back to settings main menu
 
-      And I press ENTER "3" times to close the application
-      Then the output should contain:
-      """
-      *** CODEC PREFERENCES ***
+    Please type the number of the setting you wish to change [99] :
+    """
 
-       1) FLAC [*]
-       2) FLAC options passed: --fast -V
-       3) Vorbis [ ]
-       4) Oggenc options passed: -q 5
-       5) LAME mp3 [*]
-       6) LAME options passed: -V 4
-       7) Nero AAC [*]
-       8) Nero options passed: -q 0.6
-       9) Fraunhofer AAC [*]
-      10) Fraunhofer options passed: -p 3 -m 4 -a 2
-      11) WavPack [*]
-      12) WavPack options passed: -f
-      13) Opus [*]
-      14) Opus options passed: --bitrate 200
-      15) WAVE [*]
-      16) Other codec [*]
-      17) Commandline passed: lame "%i" "%o".mp3
-      18) Playlist support [ ]
-      19) Maximum extra encoding threads: 3
-      20) Replace spaces with underscores [*]
-      21) Downsize all capital letters in file names [*]
-      22) Normalize program: replaygain
-      23) Normalize modus: track
-      99) Back to settings main menu
+  Scenario: Update the Codecs Preferences
+    When I choose "1" in order to get to the preferences menu
+    And I choose "3" in order to get to the codecs submenu
+    And I change each preferences item in the menu
+      | 1  |                    |
+      | 2  | --fast -V          |
+      | 3  |                    |
+      | 4  | -q 5               |
+      | 5  |                    |
+      | 6  | -V 4               |
+      | 7  |                    |
+      | 8  | -q 0.6             |
+      | 9  |                    |
+      | 10 | -p 3 -m 4 -a 2     |
+      | 11 |                    |
+      | 12 | -f                 |
+      | 13 |                    |
+      | 14 | --bitrate 200      |
+      | 15 |                    |
+      | 16 |                    |
+      | 17 | lame "%i" "%o".mp3 |
+      | 18 |                    |
+      | 19 | 3                  |
+      | 20 | 2                  |
+      | 21 | 2                  |
+    And I press ENTER "3" times to close the application
+    Then the output should contain:
+    """
+    *** CODEC PREFERENCES ***
 
-      Please type the number of the setting you wish to change [99] : 
-      """
-      
-    Scenario: Show the Metadata submenu
-      When I choose "1" in order to get to the preferences menu
-      And I choose "4" in order to get to the freedb submenu
-      And I press ENTER "3" times to close the application
-      Then the output should contain:
-      """
-      *** METADATA PREFERENCES ***
-      
-       1) Metadata provider: freedb
-       2) Freedb use first hit [*]
-       3) Freedb server: http://freedb.freedb.org/~cddb/cddb.cgi
-       4) Freedb username: anonymous
-       5) Freedb hostname: my_secret.com
-       6) Musicbrainz preferred countries (1st, 2nd,...): US,UK,XW,XE,JP
-       7) Musicbrainz preferred date: earlier
-       8) Musicbrainz use first known year (including LPs) [*]
-      99) Back to settings main menu
+     1) FLAC [*]
+     2) FLAC options passed: --fast -V
+     3) Vorbis [ ]
+     4) Oggenc options passed: -q 5
+     5) LAME mp3 [*]
+     6) LAME options passed: -V 4
+     7) Nero AAC [*]
+     8) Nero options passed: -q 0.6
+     9) Fraunhofer AAC [*]
+    10) Fraunhofer options passed: -p 3 -m 4 -a 2
+    11) WavPack [*]
+    12) WavPack options passed: -f
+    13) Opus [*]
+    14) Opus options passed: --bitrate 200
+    15) WAVE [*]
+    16) Other codec [*]
+    17) Commandline passed: lame "%i" "%o".mp3
+    18) Playlist support [ ]
+    19) Maximum extra encoding threads: 3
+    20) Normalize program: replaygain
+    21) Normalize modus: track
+    99) Back to settings main menu
 
-      Please type the number of the setting you wish to change [99] : 
-      """
+    Please type the number of the setting you wish to change [99] :
+    """
 
-    Scenario: Update the Metadata Preferences
-      When I choose "1" in order to get to the preferences menu
-      And I choose "4" in order to get to the freedb submenu
-      And I change each preferences item in the menu
-        | 1  | 1                  |
-        | 2  |                    |
-        | 3  | www.google.nl      |
-        | 4  | joe                |
-        | 5  | dalton.com         |
-        | 6  | UK,US             |
-        | 7  | 2                  |
-        | 8  |                    |
-      And I press ENTER "3" times to close the application
-      Then the output should contain:
-      """
-      *** METADATA PREFERENCES ***
+  Scenario: Show the Metadata submenu
+    When I choose "1" in order to get to the preferences menu
+    And I choose "4" in order to get to the metadata submenu
+    And I press ENTER "3" times to close the application
+    Then the output should contain:
+    """
+    *** METADATA PREFERENCES ***
 
-       1) Metadata provider: none
-       2) Freedb use first hit [ ]
-       3) Freedb server: www.google.nl
-       4) Freedb username: joe
-       5) Freedb hostname: dalton.com
-       6) Musicbrainz preferred countries (1st, 2nd,...): UK,US
-       7) Musicbrainz preferred date: later
-       8) Musicbrainz use first known year (including LPs) [ ]
-      99) Back to settings main menu
+     1) Metadata provider: gnudb
+     2) Gnudb use first hit [*]
+     3) Gnudb server: http://gnudb.gnudb.org/~cddb/cddb.cgi
+     4) Gnudb username: anonymous
+     5) Gnudb hostname: my_secret.com
+     6) Musicbrainz preferred countries (1st, 2nd,...): US,UK,XW,XE,JP
+     7) Musicbrainz preferred date: earlier
+     8) Musicbrainz use first known year (including LPs) [*]
+    99) Back to settings main menu
 
-      Please type the number of the setting you wish to change [99] : 
-      """
-      
-    Scenario: Show the Other submenu
-      When I choose "1" in order to get to the preferences menu
-      And I choose "5" in order to get to the other submenu
-      And I press ENTER "3" times to close the application
-      Then the output should contain:
-      """
-      *** OTHER PREFERENCES ***
+    Please type the number of the setting you wish to change [99] :
+    """
 
-       1) Base directory: ~/
-       2) Standard file scheme: %f/%a (%y) %b/%n - %t
-       3) Various artist file scheme: %f/%va (%y) %b/%n - %a - %t
-       4) Single file rip file scheme: %f/%a (%y) %b/%a - %b (%y)
-       5) Log file viewer: mousepad
-       6) File manager: thunar
-       7) Verbose mode [ ]
-       8) Debug mode [ ]
-      99) Back to settings main menu
+  Scenario: Update the Metadata Preferences
+    When I choose "1" in order to get to the preferences menu
+    And I choose "4" in order to get to the metadata submenu
+    And I change each preferences item in the menu
+      | 1 | 1             |
+      | 2 |               |
+      | 3 | www.google.nl |
+      | 4 | joe           |
+      | 5 | dalton.com    |
+      | 6 | UK,US         |
+      | 7 | 2             |
+      | 8 |               |
+    And I press ENTER "3" times to close the application
+    Then the output should contain:
+    """
+    *** METADATA PREFERENCES ***
 
-      Please type the number of the setting you wish to change [99] : 
-      """
-    
-    Scenario: Update the Other Preferences
-      When I choose "1" in order to get to the preferences menu
-      And I choose "5" in order to get to the other submenu
-      And I change each preferences item in the menu
-        | 1  | /home/test         |
-        | 2  | test               |
-        | 3  | test2              |
-        | 4  | test3              |
-        | 5  | leafpad            |
-        | 6  | dolphin            |
-        | 7  |                    |
-        | 8  |                    |
-      And I press ENTER "3" times to close the application
-      Then the output should contain:
-      """
-      *** OTHER PREFERENCES ***
+     1) Metadata provider: none
+     2) Gnudb use first hit [ ]
+     3) Gnudb server: www.google.nl
+     4) Gnudb username: joe
+     5) Gnudb hostname: dalton.com
+     6) Musicbrainz preferred countries (1st, 2nd,...): UK,US
+     7) Musicbrainz preferred date: later
+     8) Musicbrainz use first known year (including LPs) [ ]
+    99) Back to settings main menu
 
-       1) Base directory: ~/
-       2) Standard file scheme: %f/%a (%y) %b/%n - %t
-       3) Various artist file scheme: %f/%va (%y) %b/%n - %a - %t
-       4) Single file rip file scheme: %f/%a (%y) %b/%a - %b (%y)
-       5) Log file viewer: mousepad
-       6) File manager: thunar
-       7) Verbose mode [ ]
-       8) Debug mode [ ]
-      99) Back to settings main menu
+    Please type the number of the setting you wish to change [99] :
+    """
 
-      Please type the number of the setting you wish to change [99] : 
-      """  
+  Scenario: Show the Other submenu
+    When I choose "1" in order to get to the preferences menu
+    And I choose "5" in order to get to the other submenu
+    And I press ENTER "3" times to close the application
+    Then the output should contain:
+    """
+    *** OTHER PREFERENCES ***
+
+     1) Base directory: ~/
+     2) Standard file scheme: %f/%a (%y) %b/%n - %t
+     3) Various artist file scheme: %f/%va (%y) %b/%n - %a - %t
+     4) Single file rip file scheme: %f/%a (%y) %b/%a - %b (%y)
+     5) Replace spaces with underscores [ ]
+     6) Downsize all capital letters in file names [ ]
+     7) Log file viewer: mousepad
+     8) File manager: thunar
+     9) Verbose mode [ ]
+    10) Debug mode [ ]
+    99) Back to settings main menu
+
+    Please type the number of the setting you wish to change [99] :
+    """
+
+  Scenario: Update the Other Preferences
+    When I choose "1" in order to get to the preferences menu
+    And I choose "5" in order to get to the other submenu
+    And I change each preferences item in the menu
+      | 1  | /home/test |
+      | 2  | test       |
+      | 3  | test2      |
+      | 4  | test3      |
+      | 5  |            |
+      | 6  |            |
+      | 7  | leafpad    |
+      | 8  | dolphin    |
+      | 9  |            |
+      | 10 |            |
+    And I press ENTER "3" times to close the application
+    Then the output should contain:
+    """
+    *** OTHER PREFERENCES ***
+
+     1) Base directory: /home/test
+     2) Standard file scheme: test
+     3) Various artist file scheme: test2
+     4) Single file rip file scheme: test3
+     5) Replace spaces with underscores [*]
+     6) Downsize all capital letters in file names [*]
+     7) Log file viewer: leafpad
+     8) File manager: dolphin
+     9) Verbose mode [*]
+    10) Debug mode [*]
+    99) Back to settings main menu
+
+    Please type the number of the setting you wish to change [99] :
+    """
