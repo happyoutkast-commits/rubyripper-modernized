@@ -37,7 +37,7 @@ Feature: Command Line Interface non interactive commands
   When I run `rubyripper_cli -V`
   Then it should pass with exactly:
   """
-  Rubyripper version 0.7.0a1
+  Rubyripper version 0.8.0rc4
 
   """
 
@@ -45,6 +45,6 @@ Feature: Command Line Interface non interactive commands
   When I run `rubyripper_cli --version`
   Then it should pass with exactly:
   """
-  Rubyripper version 0.7.0a1
+  Rubyripper version 0.8.0rc4
 
   """
