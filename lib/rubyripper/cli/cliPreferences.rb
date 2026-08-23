@@ -394,7 +394,7 @@ private
       when 8 then @prefs.filemanager = @string.get(_('File manager'),
         @prefs.filemanager)
       when 9 then switchBool('verbose')
-      when 19 then switchBool('debug')
+      when 10 then switchBool('debug')
     else noValidChoiceMessage(choice)
     end
     loopSubMenuOther() unless choice == 99
