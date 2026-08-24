@@ -46,15 +46,11 @@ class Rubyripper
     return CheckConfigBeforeRipping.new(@ui, @disc, @trackSelection, @fileScheme).result
   end
 
-  # check the existence of the output dir
-  def dirStillAvailable
-    @fileScheme.dir.values.each{|dir| return false if @file.exist?(dir) }
-    return true
-  end
-
-  # do some neccesary preparation and start the ripping
+  # Start ripping unless one of the selected output files already exists.
+  # Existing album directories by themselves are not collisions.
   def startRip
-    if dirStillAvailable
+    conflicts = @fileScheme.conflictingFiles
+    if conflicts.empty?
       @fileScheme.createFileAndDirs()
       autofixCommonMistakes()
       calculatePercentageUpdateForProgressbar()
@@ -64,7 +60,7 @@ class Rubyripper
       waitForCuesheet() if @prefs.createCue
       @ripper.startTheRip()
     else
-      @ui.update("dir_exists", @fileScheme.dir.values[0])
+      @ui.update("files_exist", conflicts)
     end
     # @disc.md.saveChanges() # TODO update the local freedb file
   end
@@ -168,11 +164,11 @@ class Rubyripper
     return @log.short_summary
   end
 
-  def postfixDir
-    @fileScheme.postfixDir()
+  def postfixFiles
+    @fileScheme.postfixFiles()
   end
 
-  def overwriteDir
-    @fileScheme.overwriteDir()
+  def overwriteFiles
+    @fileScheme.overwriteFiles()
   end
 end

@@ -54,13 +54,13 @@ class FileScheme
     correctFilescheme()
     setDirectoryForEachCodec()
     detectOtherCodecExtension()
+    setFileNames()
   end
 
   # (re)attempt creation of the dirs, when succesfull create the filenames
   def createFileAndDirs()
     createOutputDir()
     createTempDir()
-    setFileNames()
     createPlaylists()
   end
 
@@ -111,23 +111,56 @@ class FileScheme
     File.join(File.dirname(@dir.values[0]), "temp_#{File.basename(@prefs.cdrom)}/")
   end
 
-  # auto rename choice in directory already exist dialog
-  def postfixDir
-    postfix = 1
-    @dir.values.each do |dir|
-      while @file.directory?(dir + "\##{postfix}")
-        postfix += 1
+  # Return only the selected audio output paths.
+  def outputFiles
+    @prefs.codecs.flat_map do |codec|
+      if @prefs.image
+        [getFile(codec)]
+      else
+        @trackSelection.map { |track| getFile(codec, track) }
       end
-    end
-    @dir.keys.each{|key| @dir[key] = @dir[key] += "\##{postfix}"}
+    end.uniq
   end
 
-  # remove existing dir choice in directory already exist dialog
-  def overwriteDir
-    @dir.values.each{|dir| @file.removeDir(dir)}
+  # Existing album directories are safe. Only exact output paths conflict.
+  def conflictingFiles
+    outputFiles.select { |filename| @file.exist?(filename) }
+  end
+
+  # Remove only selected output files that would be replaced.
+  def overwriteFiles
+    conflictingFiles.each { |filename| @file.removeFile(filename) }
+  end
+
+  # Keep the album directory and add a numeric suffix only where needed.
+  def postfixFiles
+    @prefs.codecs.each do |codec|
+      if @prefs.image
+        @image[codec] = availableFileName(@dir[codec], @image[codec])
+      else
+        @trackSelection.each do |track|
+          @files[codec][track] = availableFileName(@dir[codec], @files[codec][track])
+        end
+      end
+    end
   end
 
   private
+
+  def availableFileName(directory, filename)
+    return filename unless @file.exist?(File.join(directory, filename))
+
+    extension = File.extname(filename)
+    basename = File.basename(filename, extension)
+    postfix = 1
+
+    loop do
+      candidate = "#{basename} ##{postfix}#{extension}"
+      return candidate unless @file.exist?(File.join(directory, candidate))
+
+      postfix += 1
+    end
+  end
 
   def setVariables
     @dir = Hash.new    # store the dirs for each codec in @dir

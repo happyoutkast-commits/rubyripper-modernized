@@ -45,6 +45,12 @@ class FileAndDir
     FileUtils.rm_rf(item) if File.exist?(item)
   end
 
+  # remove only a file or symlink; never recurse into a directory
+  def removeFile(file)
+    file = File.expand_path(file)
+    FileUtils.rm_f(file) if File.file?(file) || File.symlink?(file)
+  end
+
   # get the extension of the file
   def extension(file)
     File.extname(file)
