@@ -1,3 +1,20 @@
+---------UNRELEASED MODERNIZATION------
+* require Ruby 3.3 or newer for the modernized dependency baseline
+* add a Bundler manifest and lockfile for reproducible installations
+* declare modern standard-library gems and test dependencies explicitly
+* isolate GTK3 and gettext dependencies for headless test environments
+* add a GitHub Actions test matrix for Ruby 3.3, 3.4, and 4.0
+* restore the Cucumber suite with Aruba 2.4 and Cucumber 11
+* remove a UTF-8 BOM that prevented a feature file from parsing
+* update obsolete Aruba calls, CLI expectations, and feature fixtures
+* fix the CLI debug preference advertised as option 10 but handled as 19
+* make the GTK3 source launcher work correctly through Bundler
+* automatically activate the local Bundler environment in the GTK3 launcher
+* preserve the first optical-drive detection error instead of overwriting it
+* report a clear message when no optical drive is detected
+* add regression coverage for missing drives and drive permission failures
+* document the modern Debian, Bundler, GTK3, test, and launch workflow
+
 ---------0.8.0 RELEASE------
 * changed 'NoSpaces' preference's behavior; it does nothing if not activated
  (was changing underscores to spaces before)
