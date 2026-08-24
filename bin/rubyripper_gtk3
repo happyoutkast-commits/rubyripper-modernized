@@ -435,7 +435,7 @@ attr_reader :instances
   end
 end
 
-if __FILE__ == $0
+if File.expand_path(__FILE__) == File.expand_path($PROGRAM_NAME)
   Gtk.init
   app = GraphicalUserInterface.new()
   app.start()
