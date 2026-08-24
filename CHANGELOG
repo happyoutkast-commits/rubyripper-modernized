@@ -16,6 +16,8 @@
 * document the modern Debian, Bundler, GTK3, test, and launch workflow
 * detect collisions per selected output file instead of per album directory
 * overwrite or auto-rename only conflicting files; never delete the album directory
+* organize new default output paths by artist and album instead of codec
+* migrate untouched legacy naming defaults while preserving custom layouts
 
 ---------0.8.0 RELEASE------
 * changed 'NoSpaces' preference's behavior; it does nothing if not activated

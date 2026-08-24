@@ -42,6 +42,7 @@ module Preferences
       SetDefaults.new()
       Load.new(customFilename, @out)
       cleanup.migrateFreedbToGnudb()
+      cleanup.migrateLegacyNamingDefaults()
     end
 
     # save the preferences

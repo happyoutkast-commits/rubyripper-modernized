@@ -99,9 +99,9 @@ module Preferences
 
     def setOtherDefaults
       @data.basedir = '~/'
-      @data.namingNormal = '%f/%a (%y) %b/%n - %t'
-      @data.namingVarious = '%f/%va (%y) %b/%n - %a - %t'
-      @data.namingImage = '%f/%a (%y) %b/%a - %b (%y)'
+      @data.namingNormal = '%a/(%y) %b/%n - %t'
+      @data.namingVarious = '%va/(%y) %b/%n - %a - %t'
+      @data.namingImage = '%a/(%y) %b/%a - %b (%y)'
       @data.editor = @deps.editor()
       @data.filemanager = @deps.filemanager
       @data.browser = @deps.browser

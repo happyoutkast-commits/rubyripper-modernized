@@ -275,9 +275,9 @@ Feature: Manage rubyripper preferences
     *** OTHER PREFERENCES ***
 
      1) Base directory: ~/
-     2) Standard file scheme: %f/%a (%y) %b/%n - %t
-     3) Various artist file scheme: %f/%va (%y) %b/%n - %a - %t
-     4) Single file rip file scheme: %f/%a (%y) %b/%a - %b (%y)
+     2) Standard file scheme: %a/(%y) %b/%n - %t
+     3) Various artist file scheme: %va/(%y) %b/%n - %a - %t
+     4) Single file rip file scheme: %a/(%y) %b/%a - %b (%y)
      5) Replace spaces with underscores [ ]
      6) Downsize all capital letters in file names [ ]
      7) Log file viewer: mousepad

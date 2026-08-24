@@ -27,6 +27,36 @@ describe Preferences::Cleanup do
   let(:fileAndDir) { double('FileAndDir').as_null_object }
   let(:cleanup) { Preferences::Cleanup.new(fileAndDir, prefs) }
 
+  context 'When legacy default naming layouts are loaded' do
+    before(:each) do
+      expect(prefs).to receive(:data).and_return pref_data
+    end
+
+    it 'moves untouched codec-first defaults under artist and album' do
+      pref_data.namingNormal = '%f/%a (%y) %b/%n - %t'
+      pref_data.namingVarious = '%f/%va (%y) %b/%n - %a - %t'
+      pref_data.namingImage = '%f/%a (%y) %b/%a - %b (%y)'
+
+      cleanup.migrateLegacyNamingDefaults
+
+      expect(pref_data.namingNormal).to eq('%a/(%y) %b/%n - %t')
+      expect(pref_data.namingVarious).to eq('%va/(%y) %b/%n - %a - %t')
+      expect(pref_data.namingImage).to eq('%a/(%y) %b/%a - %b (%y)')
+    end
+
+    it 'preserves customized naming layouts' do
+      pref_data.namingNormal = 'custom/%a/%b/%n - %t'
+      pref_data.namingVarious = 'custom/%va/%b/%n - %a - %t'
+      pref_data.namingImage = 'images/%a/%b'
+
+      cleanup.migrateLegacyNamingDefaults
+
+      expect(pref_data.namingNormal).to eq('custom/%a/%b/%n - %t')
+      expect(pref_data.namingVarious).to eq('custom/%va/%b/%n - %a - %t')
+      expect(pref_data.namingImage).to eq('images/%a/%b')
+    end
+  end
+
   context 'When settings contain references to freedb as selected metadata provider' do
     before(:each) do
       pref_data.site = ''

@@ -30,6 +30,31 @@ module Preferences
       removeOldFiles()
     end
 
+    # Move untouched codec-first naming defaults to artist/album directories.
+    # Customized layouts are deliberately left unchanged.
+    def migrateLegacyNamingDefaults
+      migrations = {
+        :namingNormal => [
+          '%f/%a (%y) %b/%n - %t',
+          '%a/(%y) %b/%n - %t'
+        ],
+        :namingVarious => [
+          '%f/%va (%y) %b/%n - %a - %t',
+          '%va/(%y) %b/%n - %a - %t'
+        ],
+        :namingImage => [
+          '%f/%a (%y) %b/%a - %b (%y)',
+          '%a/(%y) %b/%a - %b (%y)'
+        ]
+      }
+
+      migrations.each do |preference, values|
+        old_value, new_value = values
+        writer = "#{preference}="
+        @data.send(writer, new_value) if @data.send(preference) == old_value
+      end
+    end
+
     # migrate settings from freedb to gnudb
     def migrateFreedbToGnudb
       if @data.metadataProvider == 'freedb'
