@@ -181,10 +181,10 @@ attr_reader :instances
         @ripStatus.logChange(entry.value)
       elsif entry.modus == "scroll_to_end"
         @ripStatus.scrollToEnd
-      elsif entry.modus == "dir_exists"
-        require 'rubyripper/gtk3/gtkDirExists'
-        @dirExists = GtkDirExists.new(self, @rubyripper, entry.value)
-        changeDisplay(@dirExists)
+      elsif entry.modus == "files_exist"
+        require 'rubyripper/gtk3/gtkFileExists'
+        @fileExists = GtkFileExists.new(self, @rubyripper, entry.value)
+        changeDisplay(@fileExists)
       elsif entry.modus == "finished"
         showSummary(entry.value)
       elsif entry.modus == "scan_disc_finished"

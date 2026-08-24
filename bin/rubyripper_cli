@@ -70,8 +70,8 @@ class CommandLineInterface
       if get_answer(_("Do you want to change your settings? (y/n) : "), "yes",_("y"))
         @settingsInfo.editSettings()
       end
-    elsif modus == "dir_exists"
-      dirExists()
+    elsif modus == "files_exist"
+      filesExist(value)
     end
   end
 
@@ -163,18 +163,19 @@ private
     end
   end
 
-  # A dialog in case the output directory exists
-  def dirExists
-    @out.puts _("The output directory already exists. What would you like to do?")
+  # Ask how to handle exact output-file collisions.
+  def filesExist(files)
+    @out.puts _("The following output file(s) already exist:")
+    files.each { |file| @out.puts "  #{file}" }
     @out.puts ""
-    @out.puts _("1) Auto rename the output directory")
-    @out.puts _("2) Overwrite the existing directory")
+    @out.puts _("1) Auto rename only the new file(s)")
+    @out.puts _("2) Overwrite only the conflicting file(s)")
     @out.puts _("3) Cancel the rip and eject the disc")
     @out.puts ""
 
     answer = @int.get(_("Please enter the number of your choice: "), 1)
-    if answer == 1; @rubyripper.postfixDir() ; @rubyripper.startRip()
-    elsif answer == 2; @rubyripper.overwriteDir() ; @rubyripper.startRip()
+    if answer == 1; @rubyripper.postfixFiles() ; @rubyripper.startRip()
+    elsif answer == 2; @rubyripper.overwriteFiles() ; @rubyripper.startRip()
     else cancelRip()
     end
   end
