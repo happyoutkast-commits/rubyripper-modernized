@@ -34,6 +34,7 @@ class PermissionDrive
   
   # before trying to query cdparanoia check if permissions of the drive are ok
   def problems?(cdrom)
+    @error = nil
     @cdrom = cdrom
     checkDevice()
     return !(@error.nil? || @prefs.testdisc)
@@ -42,6 +43,7 @@ class PermissionDrive
   # before ripping make sure scsi drive permission are ok as well
   # * query = cdparanoia query
   def problemsSCSI?(query)
+    @error = nil
     @query = query
     checkGenericDevice()
     return !(@error.nil? || @prefs.testdisc)
@@ -55,7 +57,11 @@ private
   def checkDevice
     getRealDevice()
     isBlockDevice? if @deps.platform =~ /linux/
+    return unless @error.nil?
+
     isDriveReadable?
+    return unless @error.nil?
+
     isDriveWritable? if @deps.platform =~ /linux/
   end
   
