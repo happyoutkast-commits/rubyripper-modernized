@@ -25,6 +25,7 @@ class Errors
     :noDiscYet => _("No disc found after %s trial(s)!"),
     :noDiscInDrive => _("There is no audio disc ready in drive %s."),
     :wrongParameters => _("%s does not recognize the parameters used."),
+    :noOpticalDrive => _("No optical drive was detected.\nMake sure the drive is connected and powered on, then try again."),
     :unknownDrive => _("The device %s doesn't exist on your system!"),
     :noReadPermissionsForDrive => _("No read permission for drive %s!\nThis is required to scan the disc."),
     :noWritePermissionsForDrive => _("No write permission for drive %s!\nThis is required to scan the disc."),

@@ -16,6 +16,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 require 'rubyripper/disc/permissionDrive'
+require 'rubyripper/errors'
 
 describe PermissionDrive do
   let(:prefs) {double('Preferences', :testdisc => false)}
@@ -26,13 +27,26 @@ describe PermissionDrive do
     allow(File).to receive(:symlink?).and_return(false)
   end
 
-  it "keeps the unknown-drive error when the device doesn't exist" do
+  it "reports a helpful error when no optical drive is detected" do
     expect(File).to receive(:blockdev?).with('unknown').and_return(false)
     expect(File).not_to receive(:readable?)
     expect(File).not_to receive(:writable?)
 
     expect(permissions.problems?('unknown')).to eq(true)
-    expect(permissions.error).to eq([:unknownDrive, 'unknown'])
+    expect(permissions.error).to eq([:noOpticalDrive])
+    expect(Errors.noOpticalDrive).to eq(
+      "Error: No optical drive was detected.\n" \
+      "Make sure the drive is connected and powered on, then try again."
+    )
+  end
+
+  it "keeps the configured path when the device doesn't exist" do
+    expect(File).to receive(:blockdev?).with('/dev/missing').and_return(false)
+    expect(File).not_to receive(:readable?)
+    expect(File).not_to receive(:writable?)
+
+    expect(permissions.problems?('/dev/missing')).to eq(true)
+    expect(permissions.error).to eq([:unknownDrive, '/dev/missing'])
   end
 
   it "keeps the read-permission error without replacing it" do

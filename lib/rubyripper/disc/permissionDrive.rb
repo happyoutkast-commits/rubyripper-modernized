@@ -88,7 +88,11 @@ private
   # check if it is not a fake device
   def isBlockDevice?
     if not File.blockdev?(@cdrom)
-      @error = [:unknownDrive, @cdrom]
+      if @cdrom == 'unknown'
+        @error = [:noOpticalDrive]
+      else
+        @error = [:unknownDrive, @cdrom]
+      end
     end
   end
   
