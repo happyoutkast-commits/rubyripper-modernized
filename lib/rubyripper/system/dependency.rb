@@ -216,6 +216,7 @@ calculation unless %s is installed.") % ['Discid'],
   # determine default file manager
   def getFilemanager
     case
+    when installed?('xdg-open') then 'xdg-open'
     when ENV['DESKTOP_SESSION'] == 'kde' && installed?('dolphin') then 'dolphin'
     when ENV['DESKTOP_SESSION'] == 'kde' && installed?('konqueror') then 'konqueror'
     when installed?('thunar') then 'thunar' #Xfce4 filemanager

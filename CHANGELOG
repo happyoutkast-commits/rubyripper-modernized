@@ -18,6 +18,7 @@
 * overwrite or auto-rename only conflicting files; never delete the album directory
 * organize new default output paths by artist and album instead of codec
 * migrate untouched legacy naming defaults while preserving custom layouts
+* open logs and every unique output directory through the desktop default application
 
 ---------0.8.0 RELEASE------
 * changed 'NoSpaces' preference's behavior; it does nothing if not activated

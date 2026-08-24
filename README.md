@@ -51,7 +51,7 @@ On Debian or Ubuntu:
 ```bash
 sudo apt install \
   ruby ruby-dev bundler build-essential pkg-config \
-  cdparanoia \
+  cdparanoia xdg-utils \
   libcairo2-dev libffi-dev libgirepository1.0-dev \
   libgtk-3-dev libpango1.0-dev
 ```

@@ -16,7 +16,9 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 require 'rubyripper/preferences/main'
+require 'rubyripper/system/dependency'
 require 'rubyripper/system/execute'
+require 'shellwords'
 
 # Summary handles the rubyripper window while displaying the summary of a rip.
 # Notice that the left part of the gui with the icons is not in this class
@@ -26,9 +28,10 @@ class GtkSummary
 
   attr_reader :display
 
-  def initialize(scheme, summary, succes)
-    @prefs = Preferences::Main.instance
-    @exec = Execute.new
+  def initialize(scheme, summary, succes, prefs=nil, exec=nil, deps=nil)
+    @prefs = prefs ? prefs : Preferences::Main.instance
+    @exec = exec ? exec : Execute.new
+    @deps = deps ? deps : Dependency.instance
     showMainResult(succes)
     buildSummary(summary)
     buildOpenLogButton()
@@ -83,12 +86,23 @@ class GtkSummary
 
   def setSignals(scheme)
     @button1.signal_connect("released") do
-      Thread.new{@exec.launch("#{@prefs.editor} \"#{File.join(scheme.getDir(), "ripping.log")}\"")}
+      launchPaths([File.join(scheme.getDir(), 'ripping.log')], @prefs.editor)
     end
 
     @button2.signal_connect("released") do
-      Thread.new{@exec.launch("#{@prefs.filemanager} \"#{scheme.getDir()}\"")}
+      launchPaths(scheme.dir.values, @prefs.filemanager)
     end
+  end
+
+  def launchPaths(paths, fallback)
+    commandsFor(paths, fallback).each do |command|
+      Thread.new { @exec.launch(command) }
+    end
+  end
+
+  def commandsFor(paths, fallback)
+    opener = @deps.installed?('xdg-open') ? 'xdg-open' : fallback
+    paths.uniq.map { |path| "#{opener} #{Shellwords.escape(path)}" }
   end
 
   def assemblePage
