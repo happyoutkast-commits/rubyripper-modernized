@@ -9,16 +9,27 @@ on:
 
 jobs:
   test:
-    name: Ruby ${{ matrix.ruby }}
+    name: ${{ matrix.label }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        ruby:
-          - "3.2"
-          - "3.3"
-          - "3.4"
-          - "4.0"
+        include:
+          - ruby: "3.2"
+            bundler: "2.4.20"
+            label: "Mint/Ubuntu package baseline"
+          - ruby: "3.2"
+            bundler: "4.0.18"
+            label: "Ruby 3.2 / Bundler 4"
+          - ruby: "3.3"
+            bundler: "4.0.18"
+            label: "Ruby 3.3 / Bundler 4"
+          - ruby: "3.4"
+            bundler: "4.0.18"
+            label: "Ruby 3.4 / Bundler 4"
+          - ruby: "4.0"
+            bundler: "4.0.18"
+            label: "Ruby 4.0 / Bundler 4"
 
     env:
       BUNDLE_WITHOUT: gui:i18n
@@ -31,7 +42,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-          bundler: 4.0.18
+          bundler: ${{ matrix.bundler }}
           bundler-cache: true
 
       - name: Run RSpec suite
