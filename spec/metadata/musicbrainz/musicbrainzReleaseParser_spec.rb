@@ -144,6 +144,21 @@ describe MusicBrainzReleaseParser do
         expect(parser.md.genre).to eq('Unknown')
       end
 
+      it "should keep release metadata when the tag service returns a non-XML error" do
+        allow(prefs).to receive(:debug).and_return false
+        expect(http).to receive(:get)
+          .with('/ws/2/release-group/9162580e-5df4-32de-80cc-f45a8d8a9b1d?inc=tags')
+          .and_return('{"error": "The MusicBrainz web server is currently busy. Please try again later."}')
+
+        parser.parse(readRelease('spec/metadata/musicbrainz/data/standardRelease.xml'),
+                     '4vi.H1hC7BRP18_a.7D4r4NOYL8-', 'e50b3c11')
+
+        expect(parser.status).to eq('ok')
+        expect(parser.md.artist).to eq('The Beatles')
+        expect(parser.md.album).to eq('Abbey Road')
+        expect(parser.md.genre).to eq('Unknown')
+      end
+
       it "should map certain non-ID3-genre tags to ID3 genres" do
         expect(http).to receive(:get).with('/ws/2/artist/7dbac7e6-f351-42da-9dce-b0249ca2dd03?inc=tags').and_return File.read('spec/metadata/musicbrainz/data/mapTags.xml')
         parser.parse(readRelease('spec/metadata/musicbrainz/data/splitRelease.xml'),

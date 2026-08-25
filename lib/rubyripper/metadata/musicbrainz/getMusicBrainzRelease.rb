@@ -96,7 +96,10 @@ private
 
     # Need to parse the XML response
     xml = @network.get(uri.to_s)
-    return REXML::Document.new(xml)
+    REXML::Document.new(xml)
+  rescue REXML::ParseException => exception
+    puts "DEBUG: MusicBrainz returned invalid XML: #{exception.message}" if @prefs.debug
+    REXML::Document.new
   end
 
   # analyze the reponse code and assign neccesary action

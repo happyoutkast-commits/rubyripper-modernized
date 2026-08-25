@@ -92,7 +92,12 @@ private
             xpath = 'artist'
           end
           lookupPath = "#{xpath}/#{id}?inc=tags"
-          objectDoc = REXML::Document.new(@network.get(File::expand_path(lookupPath, @network.path)))
+          begin
+            objectDoc = REXML::Document.new(@network.get(File::expand_path(lookupPath, @network.path)))
+          rescue REXML::ParseException => exception
+            puts "DEBUG: MusicBrainz tag lookup returned invalid XML: #{exception.message}" if @prefs.debug
+            return nil
+          end
           tags = REXML::XPath::match(objectDoc, "//tag").sort {|x,y| y.attributes['count'].to_i <=> x.attributes['count'].to_i or x.elements['name'].text <=> y.elements['name'].text}
           tags.collect! {|tag| tagMap[tag.elements['name'].text]}
           tags.each do |tag|

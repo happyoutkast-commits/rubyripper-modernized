@@ -92,6 +92,13 @@ describe GetMusicBrainzRelease do
       expect(getMusicBrainz.choices).to eq(nil)
     end
 
+    it "should treat a non-XML service error as no matches" do
+      setQueryReply('{"error": "The MusicBrainz web server is currently busy. Please try again later."}')
+
+      expect { getMusicBrainz.queryDisc(@disc) }.not_to raise_error
+      expect(getMusicBrainz.status).to eq('noMatches')
+    end
+
     it "should handle the response in case 1 release is reported" do
       setQueryReply()
       getMusicBrainz.queryDisc(@disc)
