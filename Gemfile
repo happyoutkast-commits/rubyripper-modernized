@@ -21,4 +21,5 @@ group :development, :test do
   gem "aruba", "~> 2.4", require: false
   gem "cucumber", "~> 11.1"
   gem "rspec", "~> 3.13"
+  gem "rbs", "< 4.2", require: false
 end
