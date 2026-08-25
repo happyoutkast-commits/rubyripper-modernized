@@ -3,7 +3,8 @@ Feature: Command Line Interface non interactive commands
 
   Scenario: show usage with --help
   When I run `rubyripper_cli --help`
-  Then it should pass with exactly:
+  Then the exit status should be 0
+  And the stdout should contain exactly:
   """
   Usage: rubyripper_cli [options]
     -V, --version        Show current version of rubyripper.
@@ -19,7 +20,8 @@ Feature: Command Line Interface non interactive commands
 
   Scenario: show usage with -h
   When I run `rubyripper_cli -h`
-  Then it should pass with exactly:
+  Then the exit status should be 0
+  And the stdout should contain exactly:
   """
   Usage: rubyripper_cli [options]
     -V, --version        Show current version of rubyripper.
@@ -35,7 +37,8 @@ Feature: Command Line Interface non interactive commands
 
   Scenario: show version number with -V
   When I run `rubyripper_cli -V`
-  Then it should pass with exactly:
+  Then the exit status should be 0
+  And the stdout should contain exactly:
   """
   Rubyripper version 0.8.0rc4
 
@@ -43,7 +46,8 @@ Feature: Command Line Interface non interactive commands
 
   Scenario: show version number with --version
   When I run `rubyripper_cli --version`
-  Then it should pass with exactly:
+  Then the exit status should be 0
+  And the stdout should contain exactly:
   """
   Rubyripper version 0.8.0rc4
 
