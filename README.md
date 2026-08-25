@@ -13,19 +13,20 @@ preserving the original project history and tags.
 
 The modernization branch currently provides:
 
-- Ruby 3.3 and newer dependency support through Bundler
+- Ruby 3.2 and newer dependency support through Bundler
 - GTK3 and command-line interfaces
 - GnuDB and MusicBrainz metadata lookup
 - FLAC, Vorbis, MP3, WAV, Opus, WavPack, AAC, and custom codec support
 - secure multi-pass ripping with correction reporting
 - playlists, logs, ReplayGain, normalization, offsets, and optional cuesheets
 - RSpec and Cucumber test suites
-- CI configured for Ruby 3.3, 3.4, and 4.0
+- CI for Ruby 3.2 through 4.0, including the Ubuntu and Linux Mint package baseline
 
-The current checkpoint was tested on Debian with Ruby 3.3.8. The complete
-RSpec and Cucumber suites pass, the GTK3 interface runs from a source
-checkout, and physical-drive WAV and FLAC rips have been verified. The FLAC
-output decoded to PCM identical to the corresponding WAV rip.
+The current checkpoint has been tested on Debian with Ruby 3.3.8 and on Linux
+Mint 22.3 with its packaged Ruby 3.2.3 and Bundler 2.4.20. On both systems the
+complete RSpec and Cucumber suites pass and the GTK3 interface runs from a
+source checkout. Physical-drive WAV and FLAC rips were also verified on Debian;
+the FLAC output decoded to PCM identical to the corresponding WAV rip.
 
 ## Secure ripping
 
@@ -46,26 +47,41 @@ drive activity and ripping time.
 
 ### 1. Install system dependencies
 
-On Debian or Ubuntu:
+On Debian, Ubuntu, or Linux Mint:
 
 ```bash
+sudo apt update
 sudo apt install \
-  ruby ruby-dev bundler build-essential pkg-config \
+  git ruby ruby-dev bundler build-essential pkg-config \
   cdparanoia xdg-utils \
   libcairo2-dev libffi-dev libgirepository1.0-dev \
   libgtk-3-dev libpango1.0-dev
 ```
 
-Install the encoders and optional tools you intend to use. For example:
+Install the encoders and optional tools you intend to use. The following set
+supports the commonly used codecs plus disc identification, tray control,
+de-emphasis, and cuesheets:
 
 ```bash
-sudo apt install flac lame vorbis-tools opus-tools wavpack eject sox cdrdao
+sudo apt install \
+  flac lame vorbis-tools opus-tools wavpack \
+  eject sox cdrdao cd-discid
 ```
 
 The GTK frontend uses **GTK3**, not GTK4. The Ruby GTK3 gem is installed by
 Bundler; a distribution package named `ruby-gtk3` is not required.
 
-### 2. Install Ruby dependencies locally
+### 2. Clone the repository
+
+```bash
+mkdir -p ~/projects
+cd ~/projects
+git clone --branch modernization --single-branch \
+  https://github.com/happyoutkast-commits/rubyripper-modernized.git
+cd rubyripper-modernized
+```
+
+### 3. Install Ruby dependencies locally
 
 From the repository root:
 
@@ -78,13 +94,17 @@ Bundler configuration and installed gems remain local to the checkout and are
 ignored by Git. `Gemfile.lock` is committed so installations use the tested
 dependency set.
 
-### 3. Run Rubyripper
+### 4. Run Rubyripper
 
 GTK3 interface:
 
 ```bash
 ./bin/rubyripper_gtk3
 ```
+
+Run the GTK launcher from a graphical desktop session. A plain SSH session has
+no display unless graphical forwarding has been configured and will produce a
+`Gtk::InitError`.
 
 The source launcher automatically activates the repository's Bundler
 environment. Using Bundler explicitly is also supported:
@@ -110,7 +130,9 @@ generation when exact disc-layout reproduction is not needed.
 
 ## Traditional system installation
 
-The historical configure-based installer remains available:
+The historical configure-based installer remains available, although the
+Bundler-based source checkout described above is the currently recommended
+installation method:
 
 ```bash
 ./configure --enable-lang-all --enable-gtk3 --enable-cli --prefix=/usr
