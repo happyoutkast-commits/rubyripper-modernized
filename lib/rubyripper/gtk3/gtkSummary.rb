@@ -96,13 +96,19 @@ class GtkSummary
 
   def launchPaths(paths, fallback)
     commandsFor(paths, fallback).each do |command|
-      Thread.new { @exec.launch(command) }
+      begin
+        pid = Process.spawn(*command)
+        Process.detach(pid)
+      rescue SystemCallError => exception
+        warn "Failed to open #{command.last}: #{exception.message}"
+      end
     end
   end
 
   def commandsFor(paths, fallback)
-    opener = @deps.installed?('xdg-open') ? 'xdg-open' : fallback
-    paths.uniq.map { |path| "#{opener} #{Shellwords.escape(path)}" }
+    opener = @deps.installed?('xdg-open') ? ['xdg-open'] : Shellwords.split(fallback.to_s)
+    return [] if opener.empty?
+    paths.uniq.map { |path| opener + [path] }
   end
 
   def assemblePage

@@ -37,7 +37,10 @@ describe GtkSummary do
     )
 
     expect(commands).to eq(
-      ['xdg-open /music/Tool/Lateralus', 'xdg-open /music/Tool/WAV\\ files']
+      [
+        ['xdg-open', '/music/Tool/Lateralus'],
+        ['xdg-open', '/music/Tool/WAV files']
+      ]
     )
   end
 
@@ -46,6 +49,17 @@ describe GtkSummary do
 
     commands = summary.send(:commandsFor, ['/music/Tool/Lateralus'], prefs.filemanager)
 
-    expect(commands).to eq(['dolphin /music/Tool/Lateralus'])
+    expect(commands).to eq([['dolphin', '/music/Tool/Lateralus']])
+  end
+
+  it 'launches the desktop opener without the PTY command wrapper' do
+    allow(deps).to receive(:installed?).with('xdg-open').and_return(true)
+    allow(Process).to receive(:spawn).and_return(4321)
+    allow(Process).to receive(:detach)
+
+    summary.send(:launchPaths, ['/music/Tool/WAV files'], prefs.filemanager)
+
+    expect(Process).to have_received(:spawn).with('xdg-open', '/music/Tool/WAV files')
+    expect(Process).to have_received(:detach).with(4321)
   end
 end
