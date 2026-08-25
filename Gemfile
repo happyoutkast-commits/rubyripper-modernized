@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby ">= 3.3.0"
+ruby ">= 3.2.0"
 
 # Ruby standard-library components that are distributed as gems on modern Ruby.
 gem "base64", require: false
