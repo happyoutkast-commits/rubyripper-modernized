@@ -2,13 +2,13 @@
 
 Compatibility and installation
 * require Ruby 3.2 or newer
-* add a Bundler manifest and lockfile for reproducible installations
+* add a Bundler manifest and lockfile for reproducible installations, resolving some common dependency issues.
 * declare modern standard-library, GUI, translation, and test dependencies
-* support the Bundler version packaged with Ubuntu and Linux Mint
-* document installation, testing, and source-tree launch workflows
+* support the Bundler version packaged with Ubuntu and Linux Mint (they use an older version than debian)
+* document installation, testing, and source-tree launch workflows 
 
 Testing and automation
-* test Ruby 3.2, 3.3, 3.4, and 4.0 with GitHub Actions
+* test Ruby 3.2, 3.3, 3.4, and 4.0 with GitHub Actions 
 * add a Mint/Ubuntu package-baseline CI job
 * restore the Cucumber suite with Aruba 2.4 and Cucumber 11
 * update obsolete feature steps, expectations, and fixtures
@@ -17,19 +17,18 @@ Testing and automation
 
 Fixes and behavior
 * fix the CLI debug preference advertised as option 10 but handled as 19
-* make the GTK3 launcher work through Bundler and activate its local bundle
+* make the GTK3 launcher work through Bundler and activate its local bundle (see aforementioned dependency issues)
 * preserve useful optical-drive detection errors and improve missing-drive guidance
 * detect output collisions per selected file instead of per album directory
 * overwrite or auto-rename only conflicting files without deleting the album folder
-* organize new output paths by artist and album instead of codec
-* migrate untouched legacy naming defaults while preserving customized layouts
+* organize new default output paths by artist and album instead of codec
 * open logs and each unique output folder with the desktop's default applications
-* handle temporary non-XML MusicBrainz responses without aborting disc scans
+* handle broken MusicBrainz responses and prevent them from wrecking a disc read.
 
 Interface and project identity
 * set the application version to 0.9.0 and point it to the maintained repository
 * replace the obsolete Ruby 1.9 check with the supported Ruby 3.2 baseline
-* clarify the rip-completion messages and rename "Open directory" to "Open folder"
+* clarify the rip-completion messages and rename "Open directory" to "Open folder" (modernizing terminology)
 * update translation catalogs for the 0.9.0 release and current issue tracker
 
 ---------0.8.0 RELEASE------
