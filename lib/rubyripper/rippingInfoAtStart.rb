@@ -60,6 +60,11 @@ private
 
     @logString << _("Rubyripper extraction logfile from:\n%s\n\n") % [rip_date]
     @logString << "%s / %s\n\n" % [@md.artist, @md.album]
+
+    # Record the provider that actually supplied this rip's metadata. The
+    # description also explains when Rubyripper used a fallback provider.
+    @logString << _("Metadata source:")
+    @logString << " #{@md.metadata_source_description}\n\n"
   end
 
   def showRippingPrefs

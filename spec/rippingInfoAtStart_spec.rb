@@ -26,7 +26,12 @@ describe RippingInfoAtStart do
     ripping_info.instance_variable_set(:@logString, String.new)
     ripping_info.instance_variable_set(
       :@md,
-      double('Metadata', :artist => 'Tool', :album => 'Lateralus')
+      double(
+        'Metadata',
+        :artist => 'Tool',
+        :album => 'Lateralus',
+        :metadata_source_description => 'MusicBrainz'
+      )
     )
     ripping_info.instance_variable_set(
       :@execute,
@@ -38,7 +43,8 @@ describe RippingInfoAtStart do
     expect(ripping_info.instance_variable_get(:@logString)).to eq(
       "Rubyripper extraction logfile from:\n" \
       "Wed Aug 26 08:13:58 AM PDT 2026\n\n" \
-      "Tool / Lateralus\n\n"
+      "Tool / Lateralus\n\n" \
+      "Metadata source: MusicBrainz\n\n"
     )
   end
 end
