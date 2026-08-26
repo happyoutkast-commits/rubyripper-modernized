@@ -14,8 +14,7 @@ describe GtkDisc do
   it 'shows the provider that supplied the metadata' do
     metadata = double(
       'Metadata',
-      :metadata_source => 'musicbrainz',
-      :metadata_fallback? => false
+      :metadata_source_description => 'MusicBrainz'
     )
     gtk_disc.instance_variable_set(:@md, metadata)
 
@@ -25,9 +24,7 @@ describe GtkDisc do
   it 'shows when metadata came from a fallback provider' do
     metadata = double(
       'Metadata',
-      :metadata_source => 'gnudb',
-      :preferred_metadata_source => 'musicbrainz',
-      :metadata_fallback? => true
+      :metadata_source_description => 'GnuDB (fallback from MusicBrainz)'
     )
     gtk_disc.instance_variable_set(:@md, metadata)
 

@@ -30,6 +30,12 @@ module Metadata
     DEFAULT_TRACKNAME = _('Track %s')
     DEFAULT_YEAR = '0'
 
+    METADATA_PROVIDER_NAMES = {
+      'musicbrainz' => 'MusicBrainz',
+      'gnudb' => 'GnuDB',
+      'none' => 'None'
+    }.freeze
+
     def initialize
       @artist = DEFAULT_METADATA
       @album = DEFAULT_METADATA
@@ -96,6 +102,16 @@ module Metadata
       @metadata_source != @preferred_metadata_source
     end
 
+    # Keep the provider wording in one place so every interface reports the
+    # same source, including when Rubyripper had to use a fallback provider.
+    def metadata_source_description
+      source = metadata_provider_name(@metadata_source)
+      return source unless metadata_fallback?
+
+      preferred_source = metadata_provider_name(@preferred_metadata_source)
+      _("%s (fallback from %s)") % [source, preferred_source]
+    end
+
     def ==(other)
       generalEqual = @artist == other.artist &&
                      @album == other.album &&
@@ -117,6 +133,12 @@ module Metadata
         end
       end
       return generalEqual && varArtistEqual && tracksEqual
+    end
+
+  private
+
+    def metadata_provider_name(provider)
+      METADATA_PROVIDER_NAMES.fetch(provider, provider.to_s)
     end
   end
 end

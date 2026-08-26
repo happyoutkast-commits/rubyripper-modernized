@@ -63,6 +63,24 @@ describe Metadata::Data do
 
       expect(metadata.metadata_fallback?).to eq(false)
     end
+
+    it "should provide a readable name for the selected provider" do
+      metadata = Metadata::Data.new()
+      metadata.preferred_metadata_source = 'musicbrainz'
+      metadata.metadata_source = 'musicbrainz'
+
+      expect(metadata.metadata_source_description).to eq('MusicBrainz')
+    end
+
+    it "should include both provider names when a fallback was used" do
+      metadata = Metadata::Data.new()
+      metadata.preferred_metadata_source = 'musicbrainz'
+      metadata.metadata_source = 'gnudb'
+
+      expect(metadata.metadata_source_description).to eq(
+        'GnuDB (fallback from MusicBrainz)'
+      )
+    end
   end
   
   context "When metadata for standard album is compared for equality" do

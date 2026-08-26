@@ -84,6 +84,9 @@ private
   def showDiscInfo
     @out.puts "DISC INFO"
     discInfo().each_value{|value| @out.puts value}
+    # This is informational only, so it stays outside discInfo. That hash also
+    # drives the edit menu, where the automatically chosen source does not belong.
+    @out.puts _("Metadata source:") + " #{@md.metadata_source_description}"
     @out.puts ""
   end
 
@@ -238,5 +241,4 @@ end
 #          string = @string.get("Artist for Track #{answer} : ",  @md.varArtist(answer))
 #          @md.setVarArtist(answer, string)
 #        end
-
 

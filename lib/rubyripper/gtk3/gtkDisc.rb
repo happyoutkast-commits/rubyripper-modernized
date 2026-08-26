@@ -25,12 +25,6 @@ class GtkDisc
   include GetText
   GetText.bindtextdomain("rubyripper")
 
-  METADATA_PROVIDER_NAMES = {
-    'musicbrainz' => 'MusicBrainz',
-    'gnudb' => 'GnuDB',
-    'none' => 'None'
-  }.freeze
-
   attr_reader :display, :error, :selection, :disc
  
   def initialize(gui)
@@ -332,18 +326,9 @@ class GtkDisc
     @varCheckbox.active = true if @md.various?
   end
 
-  # Show the provider that supplied the metadata. If the preferred provider
-  # failed, also identify the provider Rubyripper originally tried to use.
+  # The metadata object owns this wording so GTK, CLI, and logs stay consistent.
   def metadata_source_text
-    source = metadata_provider_name(@md.metadata_source)
-    return source unless @md.metadata_fallback?
-
-    preferred_source = metadata_provider_name(@md.preferred_metadata_source)
-    _("%s (fallback from %s)") % [source, preferred_source]
-  end
-
-  def metadata_provider_name(provider)
-    METADATA_PROVIDER_NAMES.fetch(provider, provider.to_s)
+    @md.metadata_source_description
   end
 
   def updateTracks
