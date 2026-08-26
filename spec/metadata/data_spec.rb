@@ -81,6 +81,24 @@ describe Metadata::Data do
         'GnuDB (fallback from MusicBrainz)'
       )
     end
+
+    it "should describe MusicBrainz when GnuDB was the preferred provider" do
+      metadata = Metadata::Data.new()
+      metadata.preferred_metadata_source = 'gnudb'
+      metadata.metadata_source = 'musicbrainz'
+
+      expect(metadata.metadata_source_description).to eq(
+        'MusicBrainz (fallback from GnuDB)'
+      )
+    end
+
+    it "should describe an intentional choice to skip metadata lookup" do
+      metadata = Metadata::Data.new()
+      metadata.preferred_metadata_source = 'none'
+      metadata.metadata_source = 'none'
+
+      expect(metadata.metadata_source_description).to eq('None')
+    end
   end
   
   context "When metadata for standard album is compared for equality" do

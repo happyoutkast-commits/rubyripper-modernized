@@ -43,6 +43,8 @@ describe Metadata::Main do
     
     it "should skip both providers if that is the preference" do
       allow(prefs).to receive(:metadataProvider).and_return("none")
+      expect(no_provider).to receive(:metadata_source=).with('none')
+      expect(no_provider).to receive(:preferred_metadata_source=).with('none')
       expect(main.get).to eq(no_provider)
     end
     
@@ -80,6 +82,9 @@ describe Metadata::Main do
         expect(freedb).to receive(:status).and_return 'mayday'
         expect(musicbrainz).to receive(:get)
         expect(musicbrainz).to receive(:status).and_return 'ok'
+        expect(musicbrainz).to receive(:metadata_source=).with('musicbrainz')
+        expect(musicbrainz).to receive(:preferred_metadata_source=)
+          .with('gnudb')
         expect(main.get).to eq(musicbrainz)
       end
       
