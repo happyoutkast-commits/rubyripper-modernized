@@ -7,7 +7,9 @@
 #    the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 
-require File.expand_path('../../bin/rubyripper_gtk3', __dir__)
+# The GTK executable intentionally has no .rb extension, so Ruby's library
+# loader cannot require it. Load the exact path without running its main guard.
+load File.expand_path('../../bin/rubyripper_gtk3', __dir__)
 
 describe GraphicalUserInterface do
   let(:preferences) { double('Preferences') }
