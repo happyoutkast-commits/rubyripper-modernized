@@ -28,25 +28,33 @@ class GtkSummary
 
   attr_reader :display
 
-  def initialize(scheme, summary, succes, prefs=nil, exec=nil, deps=nil)
+  def initialize(scheme, summary, success, prefs=nil, exec=nil, deps=nil)
     @prefs = prefs ? prefs : Preferences::Main.instance
     @exec = exec ? exec : Execute.new
     @deps = deps ? deps : Dependency.instance
-    showMainResult(succes)
+    showMainResult(success)
     buildSummary(summary)
     buildOpenLogButton()
-    buildOpenDirButton()
+    buildOpenFolderButton()
     setSignals(scheme)
     assemblePage()
   end
 
-  def showMainResult(succes)
-    if succes == true
-      @label1 = Gtk::Label.new(_("The rip has succesfully finished.\nA short summary is shown below."))
+  def showMainResult(success)
+    if success
+      @label1 = Gtk::Label.new(completionMessage(true))
       @image1 = Gtk::Image.new(:stock => Gtk::Stock::DIALOG_INFO, :size => Gtk::IconSize::DIALOG)
     else
-      @label1 = Gtk::Label.new(_("The rip had some problems.\nA short summary is shown below."))
+      @label1 = Gtk::Label.new(completionMessage(false))
       @image1 = Gtk::Image.new(:stock => Gtk::Stock::DIALOG_ERROR, :size => Gtk::IconSize::DIALOG)
+    end
+  end
+
+  def completionMessage(success)
+    if success
+      _("The rip completed successfully.\nA summary is shown below.")
+    else
+      _("The rip completed, but some problems were detected.\nReview the summary below for details.")
     end
   end
 
@@ -74,10 +82,10 @@ class GtkSummary
     @button1.add(@hbox2)
   end
 
-  def buildOpenDirButton
+  def buildOpenFolderButton
     # assemble button 2
     @button2 = Gtk::Button.new()
-    @label3 = Gtk::Label.new(_("Open directory"))
+    @label3 = Gtk::Label.new(_("Open folder"))
     @image3 = Gtk::Image.new(:stock => Gtk::Stock::OPEN, :size => Gtk::IconSize::LARGE_TOOLBAR)
     @hbox3 = Gtk::Box.new(:horizontal)
     [@image3, @label3].each{|object| @hbox3.pack_start(object)}
@@ -122,7 +130,7 @@ class GtkSummary
     @vbox1.pack_start(@scrolled_window, :expand => false, :fill => false) #maximize the space for displaying the tracks
     @vbox1.pack_start(@hbox4, :expand => false, :fill => false)
 
-    @display = Gtk::Frame.new(_("Ripping and encoding is finished"))
+    @display = Gtk::Frame.new(_("Ripping and encoding complete"))
     @display.set_shadow_type(Gtk::ShadowType::ETCHED_IN)
     @display.border_width = 5
     @display.add(@vbox1)

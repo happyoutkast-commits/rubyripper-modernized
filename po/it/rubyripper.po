@@ -3,8 +3,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Rubyripper 0.7.0a1\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: Rubyripper 0.9.0\n"
+"Report-Msgid-Bugs-To: https://github.com/happyoutkast-commits/rubyripper-modernized/issues\n"
 "PO-Revision-Date: 2021-02-28 19:10+0100\n"
 "Last-Translator: BleskoDev <bleskodev@ennumia.eu>\n"
 "Language-Team: French <bleskodev@ennumia.eu>\n"
@@ -1211,22 +1211,22 @@ msgid "The eject utility is not found on your system!"
 msgstr "L'utility eject non è installata."
 
 msgid ""
-"The rip has succesfully finished.\n"
-"A short summary is shown below."
+"The rip completed successfully.\n"
+"A summary is shown below."
 msgstr ""
 
 msgid ""
-"The rip had some problems.\n"
-"A short summary is shown below."
+"The rip completed, but some problems were detected.\n"
+"Review the summary below for details."
 msgstr ""
 
 msgid "Open log file"
 msgstr "Apri file di log"
 
-msgid "Open directory"
+msgid "Open folder"
 msgstr "Apri cartella"
 
-msgid "Ripping and encoding is finished"
+msgid "Ripping and encoding complete"
 msgstr "Estrazione e codifica terminata"
 
 #, fuzzy

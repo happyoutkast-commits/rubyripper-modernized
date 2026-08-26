@@ -11,8 +11,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Rubyripper 0.8.0rc3\n"
-"Report-Msgid-Bugs-To: bleskodev@ennumia.eu\n"
+"Project-Id-Version: Rubyripper 0.9.0\n"
+"Report-Msgid-Bugs-To: https://github.com/happyoutkast-commits/rubyripper-modernized/issues\n"
 "PO-Revision-Date: 2023-08-30 19:19+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -1109,15 +1109,15 @@ msgid "The eject utility is not found on your system!"
 msgstr "Udskubningsværktøjet er ikke fundet på dit system!"
 
 msgid ""
-"The rip has succesfully finished.\n"
-"A short summary is shown below."
+"The rip completed successfully.\n"
+"A summary is shown below."
 msgstr ""
 "Udtrækket er afsluttet.\n"
 "Et kort sammendrag er vist nedenfor."
 
 msgid ""
-"The rip had some problems.\n"
-"A short summary is shown below."
+"The rip completed, but some problems were detected.\n"
+"Review the summary below for details."
 msgstr ""
 "Udtrækket havde nogle problemer.\n"
 "Et kort sammendrag er vist nedenfor."
@@ -1125,10 +1125,10 @@ msgstr ""
 msgid "Open log file"
 msgstr "Åbn logfil"
 
-msgid "Open directory"
+msgid "Open folder"
 msgstr "Åbn mappe"
 
-msgid "Ripping and encoding is finished"
+msgid "Ripping and encoding complete"
 msgstr "Udtrækning og kodning er afsluttet"
 
 # engelsk fejl mellemrum?

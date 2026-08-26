@@ -27,6 +27,15 @@ describe GtkSummary do
     summary.instance_variable_set(:@prefs, prefs)
   end
 
+  it 'uses clear completion messages' do
+    expect(summary.send(:completionMessage, true)).to eq(
+      "The rip completed successfully.\nA summary is shown below."
+    )
+    expect(summary.send(:completionMessage, false)).to eq(
+      "The rip completed, but some problems were detected.\nReview the summary below for details."
+    )
+  end
+
   it 'uses xdg-open once for each unique output directory' do
     allow(deps).to receive(:installed?).with('xdg-open').and_return(true)
 
