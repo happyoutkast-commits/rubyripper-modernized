@@ -16,9 +16,20 @@ unless defined?(Gtk)
   $LOADED_FEATURES << 'gtk3.rb'
 end
 
-# The executable intentionally has no .rb extension, so load its exact path.
-# Its main guard remains false under RSpec and will not launch the application.
-load File.expand_path('../../bin/rubyripper_gtk3', __dir__)
+# Loading the executable also loads rubyripper/base.rb, which replaces the
+# version and project URL supplied by spec/support/env.rb. Preserve that test
+# identity so this spec cannot change the behavior of unrelated examples.
+test_version = $rr_version
+test_project_url = $rr_url
+
+begin
+  # The executable intentionally has no .rb extension, so load its exact path.
+  # Its main guard remains false under RSpec and will not launch the application.
+  load File.expand_path('../../bin/rubyripper_gtk3', __dir__)
+ensure
+  $rr_version = test_version
+  $rr_url = test_project_url
+end
 
 describe GraphicalUserInterface do
   let(:preferences) { double('Preferences') }
