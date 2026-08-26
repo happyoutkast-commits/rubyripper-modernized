@@ -15,9 +15,11 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>
 
-# The current version of Rubyripper
-$rr_version = '0.8.0rc4'
-$rr_url = 'https://github.com/bleskodev/rubyripper'
+require 'rubyripper/version'
+
+# Legacy globals retained for existing callers.
+$rr_version = Rubyripper::VERSION
+$rr_url = Rubyripper::PROJECT_URL
 
 # Crash on errors, because bugs are otherwise hard to find
 Thread.abort_on_exception = true
