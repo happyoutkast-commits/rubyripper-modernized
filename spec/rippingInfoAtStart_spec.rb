@@ -20,4 +20,25 @@ describe RippingInfoAtStart do
       "Website: #{Rubyripper::PROJECT_URL}\n\n"
     )
   end
+
+  it 'prints the rip date without command-output formatting' do
+    ripping_info = described_class.allocate
+    ripping_info.instance_variable_set(:@logString, String.new)
+    ripping_info.instance_variable_set(
+      :@md,
+      double('Metadata', :artist => 'Tool', :album => 'Lateralus')
+    )
+    ripping_info.instance_variable_set(
+      :@execute,
+      double('Execute', :launch => ["Wed Aug 26 08:13:58 AM PDT 2026\r\n"])
+    )
+
+    ripping_info.send(:showBasicRipInfo)
+
+    expect(ripping_info.instance_variable_get(:@logString)).to eq(
+      "Rubyripper extraction logfile from:\n" \
+      "Wed Aug 26 08:13:58 AM PDT 2026\n\n" \
+      "Tool / Lateralus\n\n"
+    )
+  end
 end

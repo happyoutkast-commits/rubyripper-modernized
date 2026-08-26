@@ -54,7 +54,11 @@ private
   end
 
   def showBasicRipInfo
-    @logString << _("Rubyripper extraction logfile from:\n%s\n\n") % [@execute.launch("date")]
+    # Execute returns command output as an array of lines. The logfile only
+    # needs the first line, without terminal newline characters.
+    rip_date = @execute.launch("date").first.to_s.strip
+
+    @logString << _("Rubyripper extraction logfile from:\n%s\n\n") % [rip_date]
     @logString << "%s / %s\n\n" % [@md.artist, @md.album]
   end
 
