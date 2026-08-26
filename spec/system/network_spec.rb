@@ -25,6 +25,7 @@ describe Network do
   let(:url) {double('URL').as_null_object}
   let(:proxy) {double('Proxy').as_null_object}
   let(:http) {double('NetHttp').as_null_object}
+  let(:connection) {double('HTTP connection').as_null_object}
   let(:cgi) {double('CGI').as_null_object}
   let(:network) {Network.new(prefs, deps, uri, http, cgi)}
 
@@ -34,12 +35,21 @@ describe Network do
       expect(url).to receive(:host).once.and_return 1
       expect(url).to receive(:port).once.and_return 2
       expect(url).to receive(:path).once.and_return 3
+      expect(url).to receive(:scheme).once.and_return 'http'
+
+      expect(connection).to receive(:open_timeout=)
+        .with(Network::OPEN_TIMEOUT_SECONDS)
+      expect(connection).to receive(:read_timeout=)
+        .with(Network::READ_TIMEOUT_SECONDS)
+      expect(connection).to receive(:max_retries=)
+        .with(Network::HTTP_RETRIES)
+      expect(connection).to receive(:use_ssl=).with(false)
     end
     
     it "should be able to do so without a proxy" do
       expect(deps).to receive(:env).with('http_proxy').once().and_return nil
       expect(uri).to receive(:parse).once.and_return(url)
-      expect(http).to receive(:new).with(1, 2)
+      expect(http).to receive(:new).with(1, 2).and_return(connection)
       
       network.startCgiConnection('http://freedb.freedb.org/~cddb/cddb.cgi')
       expect(network.path).to eq(3)
@@ -54,6 +64,7 @@ describe Network do
       expect(proxy).to receive(:password).and_return false
       expect(uri).to receive(:parse).with(4).and_return proxy
       expect(http).to receive(:new).with(1, 2, 5, 6, 7, '')
+        .and_return(connection)
       
       network.startCgiConnection('http://freedb.freedb.org/~cddb/cddb.cgi')
       expect(network.path).to eq(3)
@@ -65,6 +76,14 @@ describe Network do
       query = 'http://freedb.freedb.org/~cddb/cddb.cgi'
       request = network.configureGetRequest(query)
       expect(request['User-Agent']).to eq("rubyripper/#{$rr_version} (#{$rr_url})")
+    end
+
+    it "should return an empty result when the provider times out" do
+      allow(prefs).to receive(:debug).and_return false
+      network.instance_variable_set(:@connection, connection)
+      expect(connection).to receive(:request).and_raise(Net::ReadTimeout)
+
+      expect(network.get('/lookup')).to eq('')
     end
   end
 end

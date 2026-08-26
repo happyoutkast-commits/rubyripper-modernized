@@ -15,8 +15,6 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>
 
-# TODO require 'timeout' # in case of no connection
-
 require 'rubyripper/system/dependency'
 require 'rubyripper/preferences/main'
 require 'net/http' #automatically loads the 'uri' library
@@ -24,6 +22,10 @@ require 'cgi'#for translating characters to HTTP codes, space = %20 for instance
 
 # This class handles all connectivity with a http server
 class Network
+  OPEN_TIMEOUT_SECONDS = 10
+  READ_TIMEOUT_SECONDS = 20
+  HTTP_RETRIES = 0
+
   attr_reader :path
 
   def initialize(prefs=nil, deps=nil, uri=nil, http=nil, cgi=nil)
@@ -76,6 +78,15 @@ private
     else
       @connection = @http.new(@url.host, @url.port)
     end
+
+    # Ruby's one-minute defaults make provider fallback feel like a frozen
+    # application. These limits still allow for a slow connection while making
+    # an unavailable metadata service fail promptly. Rubyripper performs its
+    # own fallback by trying the other provider, so Net::HTTP should not repeat
+    # the same failed request first.
+    @connection.open_timeout = OPEN_TIMEOUT_SECONDS
+    @connection.read_timeout = READ_TIMEOUT_SECONDS
+    @connection.max_retries = HTTP_RETRIES
     @connection.use_ssl = @url.scheme == 'https'
   end
 end
