@@ -23,7 +23,8 @@ module Metadata
     def self._(txt) ; GetText._(txt) ; end 
     
     attr_accessor :artist, :album, :genre, :year, :tracklist, :varArtist,
-      :extraDiscInfo, :discid, :discNumber
+      :extraDiscInfo, :discid, :discNumber, :metadata_source,
+      :preferred_metadata_source
 
     DEFAULT_METADATA = _('Unknown')
     DEFAULT_TRACKNAME = _('Track %s')
@@ -38,6 +39,8 @@ module Metadata
       @discid = ''
       @tracklist = Hash.new
       @varArtist = Hash.new
+      @metadata_source = 'none'
+      @preferred_metadata_source = 'none'
     end
 
     # get the trackname for a given tracknumber
@@ -86,6 +89,12 @@ module Metadata
     end
   
     def various? ; @varArtist.size > 0 ; end
+
+    # A fallback occurs when another provider supplies the metadata after the
+    # user's preferred provider could not return a usable result.
+    def metadata_fallback?
+      @metadata_source != @preferred_metadata_source
+    end
 
     def ==(other)
       generalEqual = @artist == other.artist &&

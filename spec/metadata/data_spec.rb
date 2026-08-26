@@ -46,6 +46,24 @@ describe Metadata::Data do
     md.setTrackname(2, track2) if track2
     return md
   end
+
+  context "When the metadata provider is recorded" do
+    it "should report whether a fallback provider was used" do
+      metadata = Metadata::Data.new()
+      metadata.preferred_metadata_source = 'musicbrainz'
+      metadata.metadata_source = 'gnudb'
+
+      expect(metadata.metadata_fallback?).to eq(true)
+    end
+
+    it "should not report a fallback when the preferred provider succeeded" do
+      metadata = Metadata::Data.new()
+      metadata.preferred_metadata_source = 'musicbrainz'
+      metadata.metadata_source = 'musicbrainz'
+
+      expect(metadata.metadata_fallback?).to eq(false)
+    end
+  end
   
   context "When metadata for standard album is compared for equality" do
 

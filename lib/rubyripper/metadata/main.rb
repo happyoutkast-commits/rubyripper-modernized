@@ -32,11 +32,15 @@ module Metadata
     # fall back to other metadata provider if no matches
     def get
       setProvidersPriority()
+      selected_provider = nil
+
       @providers.each do |provider|
         startup(provider)
+        selected_provider = provider
         break if provider == 'none' || @provider.status == 'ok' || @provider.status == 'multipleRecords'
       end
-      
+
+      record_metadata_source(selected_provider)
       return @provider
     end
     
@@ -55,6 +59,13 @@ module Metadata
         when 'gnudb' then freedb()
         when 'none' then none()
       end
+    end
+
+    # Preserve both provider names so the interfaces can clearly report when
+    # Rubyripper used a fallback instead of the user's preferred provider.
+    def record_metadata_source(selected_provider)
+      @provider.metadata_source = selected_provider
+      @provider.preferred_metadata_source = @prefs.metadataProvider
     end
     
     def musicbrainz
