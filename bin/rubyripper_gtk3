@@ -76,7 +76,7 @@ attr_reader :instances
     setupMainContainer()
     showWelcomeMessage()
     @gtkWindow.show_all()
-    scanDisc()
+    enableIdleControls()
     Gtk.main
   end
   
@@ -118,10 +118,19 @@ attr_reader :instances
     @gtkWindow.add(@mainHbox)
   end
   
-  # launch the welcome message and announce the scanning
+  # Show the initial instructions without touching the drive or the network.
+  # The user may want to review Preferences before the first metadata lookup.
   def showWelcomeMessage
     @shortMessage.welcome()
     changeDisplay(@shortMessage)
+  end
+
+  # Ripping is unavailable until a disc has been scanned successfully. The
+  # remaining controls are safe and useful while Rubyripper is idle.
+  def enableIdleControls
+    @buttons[0..2].each{|button| button.sensitive = true}
+    @buttons[3].sensitive = false
+    @buttons[4].sensitive = true
   end
 
   def scanDisc
@@ -344,7 +353,10 @@ attr_reader :instances
       changeDisplay(@gtkDisc)
       @buttons.each{|button| button.sensitive = true}
     else
-      refreshDisc()
+      # Returning from Preferences must not start an unrequested metadata
+      # lookup. The user can begin one explicitly with the Scan drive button.
+      showWelcomeMessage()
+      enableIdleControls()
     end
   end
   

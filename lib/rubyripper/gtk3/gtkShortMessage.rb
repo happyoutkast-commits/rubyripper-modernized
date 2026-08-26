@@ -34,8 +34,11 @@ class ShortMessage
   end
   
   def welcome
-    @display.text = _("Welcome to rubyripper %s.") % [$rr_version] + 
-        "\n\n" + scan()
+    @display.text = _("Welcome to rubyripper %s.") % [$rr_version] +
+      "\n\n" +
+      _("Insert a disc and press 'Scan drive' to scan it in preparation for ripping.") +
+      "\n\n" +
+      _("Alternatively, open 'Preferences' to choose your preferred options first.")
   end
   
   def refreshDisc
