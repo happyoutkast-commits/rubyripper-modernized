@@ -1,25 +1,36 @@
----------UNRELEASED MODERNIZATION------
-* require Ruby 3.3 or newer for the modernized dependency baseline
+---------0.9.0 RELEASE (2026-08-26)------
+
+Compatibility and installation
+* require Ruby 3.2 or newer
 * add a Bundler manifest and lockfile for reproducible installations
-* declare modern standard-library gems and test dependencies explicitly
-* isolate GTK3 and gettext dependencies for headless test environments
-* add a GitHub Actions test matrix for Ruby 3.3, 3.4, and 4.0
+* declare modern standard-library, GUI, translation, and test dependencies
+* support the Bundler version packaged with Ubuntu and Linux Mint
+* document installation, testing, and source-tree launch workflows
+
+Testing and automation
+* test Ruby 3.2, 3.3, 3.4, and 4.0 with GitHub Actions
+* add a Mint/Ubuntu package-baseline CI job
 * restore the Cucumber suite with Aruba 2.4 and Cucumber 11
-* remove a UTF-8 BOM that prevented a feature file from parsing
-* update obsolete Aruba calls, CLI expectations, and feature fixtures
+* update obsolete feature steps, expectations, and fixtures
+* add regression coverage for release metadata, optical-drive errors,
+  output collisions, desktop launchers, and MusicBrainz service failures
+
+Fixes and behavior
 * fix the CLI debug preference advertised as option 10 but handled as 19
-* make the GTK3 source launcher work correctly through Bundler
-* automatically activate the local Bundler environment in the GTK3 launcher
-* preserve the first optical-drive detection error instead of overwriting it
-* report a clear message when no optical drive is detected
-* add regression coverage for missing drives and drive permission failures
-* document the modern Debian, Bundler, GTK3, test, and launch workflow
-* detect collisions per selected output file instead of per album directory
-* overwrite or auto-rename only conflicting files; never delete the album directory
-* organize new default output paths by artist and album instead of codec
-* migrate untouched legacy naming defaults while preserving custom layouts
-* open logs and every unique output directory through the desktop default application
-* handle temporary non-XML MusicBrainz errors without aborting disc scans
+* make the GTK3 launcher work through Bundler and activate its local bundle
+* preserve useful optical-drive detection errors and improve missing-drive guidance
+* detect output collisions per selected file instead of per album directory
+* overwrite or auto-rename only conflicting files without deleting the album folder
+* organize new output paths by artist and album instead of codec
+* migrate untouched legacy naming defaults while preserving customized layouts
+* open logs and each unique output folder with the desktop's default applications
+* handle temporary non-XML MusicBrainz responses without aborting disc scans
+
+Interface and project identity
+* set the application version to 0.9.0 and point it to the maintained repository
+* replace the obsolete Ruby 1.9 check with the supported Ruby 3.2 baseline
+* clarify the rip-completion messages and rename "Open directory" to "Open folder"
+* update translation catalogs for the 0.9.0 release and current issue tracker
 
 ---------0.8.0 RELEASE------
 * changed 'NoSpaces' preference's behavior; it does nothing if not activated
