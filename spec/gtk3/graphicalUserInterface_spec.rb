@@ -7,8 +7,17 @@
 #    the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 
-# The GTK executable intentionally has no .rb extension, so Ruby's library
-# loader cannot require it. Load the exact path without running its main guard.
+# This spec tests startup decisions, not GTK itself. CI deliberately omits the
+# GUI dependency, so provide only the main-loop method exercised below and mark
+# gtk3 as loaded before loading the executable.
+unless defined?(Gtk)
+  Gtk = Module.new
+  Gtk.define_singleton_method(:main) {}
+  $LOADED_FEATURES << 'gtk3.rb'
+end
+
+# The executable intentionally has no .rb extension, so load its exact path.
+# Its main guard remains false under RSpec and will not launch the application.
 load File.expand_path('../../bin/rubyripper_gtk3', __dir__)
 
 describe GraphicalUserInterface do

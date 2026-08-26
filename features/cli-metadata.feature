@@ -20,6 +20,7 @@ Feature: See and update the metadata from audio discs
     Year: 2004
     Extra disc info: YEAR: 2004
     Marked as various disc? [ ]
+    Metadata source: GnuDB
     
     TRACK INFO
     1. Terminal Show
@@ -55,6 +56,7 @@ Feature: See and update the metadata from audio discs
     Year: 1998
     Extra disc info: Walt Disney Records 1997WD360592 YEAR: 1998
     Marked as various disc? [ ]
+    Metadata source: GnuDB
     
     TRACK INFO
     1. Männer sind Schweine (Single Version)
