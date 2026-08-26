@@ -99,6 +99,16 @@ describe Metadata::Data do
 
       expect(metadata.metadata_source_description).to eq('None')
     end
+
+    it "should explain when neither external provider returned metadata" do
+      metadata = Metadata::Data.new()
+      metadata.preferred_metadata_source = 'musicbrainz'
+      metadata.metadata_source = 'none'
+
+      expect(metadata.metadata_source_description).to eq(
+        'None (no usable metadata from MusicBrainz or GnuDB)'
+      )
+    end
   end
   
   context "When metadata for standard album is compared for equality" do

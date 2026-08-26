@@ -96,8 +96,9 @@ module Metadata
   
     def various? ; @varArtist.size > 0 ; end
 
-    # A fallback occurs when another provider supplies the metadata after the
-    # user's preferred provider could not return a usable result.
+    # A fallback occurs whenever the final source differs from the user's
+    # preference. This includes the built-in no-metadata result used after both
+    # external providers fail to return anything usable.
     def metadata_fallback?
       @metadata_source != @preferred_metadata_source
     end
@@ -107,6 +108,13 @@ module Metadata
     def metadata_source_description
       source = metadata_provider_name(@metadata_source)
       return source unless metadata_fallback?
+
+      # Reaching the built-in provider means both external providers were
+      # tried without producing usable metadata. Keep this distinct from the
+      # user's intentional choice to disable metadata lookup.
+      if @metadata_source == 'none'
+        return _("None (no usable metadata from MusicBrainz or GnuDB)")
+      end
 
       preferred_source = metadata_provider_name(@preferred_metadata_source)
       _("%s (fallback from %s)") % [source, preferred_source]

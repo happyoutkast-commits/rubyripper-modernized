@@ -68,6 +68,9 @@ describe Metadata::Main do
         expect(musicbrainz).to receive(:status).and_return 'mayday'
         expect(freedb).to receive(:get)
         expect(freedb).to receive(:status).and_return 'mayday'
+        expect(no_provider).to receive(:metadata_source=).with('none')
+        expect(no_provider).to receive(:preferred_metadata_source=)
+          .with('musicbrainz')
         expect(main.get).to eq(no_provider)
       end
     end
@@ -93,6 +96,9 @@ describe Metadata::Main do
         expect(freedb).to receive(:status).and_return 'mayday'
         expect(musicbrainz).to receive(:get)
         expect(musicbrainz).to receive(:status).and_return 'mayday'
+        expect(no_provider).to receive(:metadata_source=).with('none')
+        expect(no_provider).to receive(:preferred_metadata_source=)
+          .with('gnudb')
         expect(main.get).to eq(no_provider)
       end
     end
