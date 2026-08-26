@@ -27,11 +27,10 @@ Thread.abort_on_exception = true
 # Make sure the locale files work before installing
 ENV['GETTEXT_PATH'] = File.expand_path('../../../locale',__FILE__) unless ENV['GETTEXT_PATH']
 
-major_version = RUBY_VERSION.delete('.')[0..1].to_i
-if major_version < 19
-  puts "Ruby versions older than the 1.9 release are not supported anymore"
-  puts "Please upgrade ruby to a recent version."
-  exit()
+unless Rubyripper.supported_ruby?(RUBY_VERSION)
+  puts "Ruby #{Rubyripper::MINIMUM_RUBY_VERSION} or newer is required."
+  puts "Current Ruby version: #{RUBY_VERSION}"
+  exit(1)
 end
 
 

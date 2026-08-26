@@ -17,8 +17,8 @@
 require 'rubygems/version'
 
 class Rubyripper
-  VERSION = '0.8.0rc4'
-  PROJECT_URL = 'https://github.com/bleskodev/rubyripper'
+  VERSION = '0.9.0'
+  PROJECT_URL = 'https://github.com/happyoutkast-commits/rubyripper-modernized'
   MINIMUM_RUBY_VERSION = '3.2.0'
 
   def self.supported_ruby?(version)
