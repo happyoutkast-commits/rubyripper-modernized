@@ -52,8 +52,14 @@ class Log
 
   def createLog
     @logfiles = Array.new
-    @prefs.codecs.each do |codec|
-      logfile = @fileScheme.getLogFile(codec)
+
+    # Multiple codecs can share an output directory and therefore the same
+    # ripping.log. Open each unique path once so messages are not duplicated.
+    logfile_paths = @prefs.codecs.map do |codec|
+      @fileScheme.getLogFile(codec)
+    end
+
+    logfile_paths.uniq.each do |logfile|
       @file.createDirForFile(logfile)
       @logfiles << File.open(logfile, 'a')
     end
