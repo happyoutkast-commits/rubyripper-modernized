@@ -31,7 +31,7 @@ describe Log do
     allow(File).to receive(:open).and_return(double('Logfile'))
   end
 
-  it 'opens a shared logfile only once' do
+  it 'opens a fresh shared logfile only once' do
     shared_logfile = '/music/Tool/Lateralus/ripping.log'
     allow(file_scheme).to receive(:getLogFile).and_return(shared_logfile)
 
@@ -39,7 +39,7 @@ describe Log do
 
     expect(file_and_dir).to have_received(:createDirForFile)
       .once.with(shared_logfile)
-    expect(File).to have_received(:open).once.with(shared_logfile, 'a')
+    expect(File).to have_received(:open).once.with(shared_logfile, 'w')
   end
 
   it 'opens separate logfiles when codecs use separate directories' do
@@ -50,8 +50,8 @@ describe Log do
     log.createLog
 
     expect(File).to have_received(:open)
-      .once.with('/music/Tool/Lateralus/flac/ripping.log', 'a')
+      .once.with('/music/Tool/Lateralus/flac/ripping.log', 'w')
     expect(File).to have_received(:open)
-      .once.with('/music/Tool/Lateralus/wav/ripping.log', 'a')
+      .once.with('/music/Tool/Lateralus/wav/ripping.log', 'w')
   end
 end

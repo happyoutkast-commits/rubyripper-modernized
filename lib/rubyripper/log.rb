@@ -61,7 +61,10 @@ class Log
 
     logfile_paths.uniq.each do |logfile|
       @file.createDirForFile(logfile)
-      @logfiles << File.open(logfile, 'a')
+
+      # A logfile describes one rip session. Starting with a fresh file keeps
+      # earlier rips from accumulating in the current session's report.
+      @logfiles << File.open(logfile, 'w')
     end
   end
 
