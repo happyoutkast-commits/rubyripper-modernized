@@ -73,11 +73,13 @@ sudo apt install \
 ```
 
 The GTK frontend uses **GTK3**, not GTK4. The Ruby GTK3 gem is installed by
-Bundler; a distribution package named `ruby-gtk3` is not required.
+Bundler; a distribution package named `ruby-gtk3` is not required. You no 
+longer have to go on an archeological expedition to find the package.
 
 These package instructions should also apply to other Debian derivatives,
 including Parrot OS, but only Debian, Ubuntu, and Linux Mint are currently
-covered by testing.
+covered by testing. ParrotOS testing has been scheduled for a random time
+by a pack of wild llamas.
 
 ### 2. Clone the repository
 
