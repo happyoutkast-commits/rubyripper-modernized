@@ -18,6 +18,7 @@
 require 'rubyripper/preferences/main'
 require 'rubyripper/system/execute'
 require 'rubyripper/modules/audioCalculations'
+require 'rubyripper/version'
 
 class RippingInfoAtStart
   include AudioCalculations
@@ -46,8 +47,10 @@ class RippingInfoAtStart
 private
 
   def showVersion
-    @logString << _("Rubyripper version %s") % [$rr_version]
-    @logString << _("\nWebsite:") + " https://github.com/bleskodev/rubyripper\n\n"
+    # Keep release information in one place. This prevents the logfile from
+    # retaining an old version or project URL when a new release is prepared.
+    @logString << _("Rubyripper version %s") % [Rubyripper::VERSION]
+    @logString << _("\nWebsite:") + " #{Rubyripper::PROJECT_URL}\n\n"
   end
 
   def showBasicRipInfo
