@@ -236,7 +236,9 @@ write_control_metadata() {
   application_version="$(read_application_version)"
   [[ -n "${application_version}" ]] || fail "Could not read the Rubyripper version."
   package_version="${application_version}-${PACKAGE_REVISION}"
-  installed_size="$(du --summarize --kilobytes "${PACKAGE_ROOT}" | cut -f 1)"
+  # Debian records Installed-Size in KiB. Short du options also work on the
+  # older GNU coreutils versions used by our Ubuntu 22.04 build baseline.
+  installed_size="$(du -sk "${PACKAGE_ROOT}" | cut -f 1)"
   shared_dependencies="$(collect_shared_library_dependencies)"
 
   sed \
