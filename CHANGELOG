@@ -1,4 +1,4 @@
----------0.9.0 RELEASE (2026-08-26)------
+---------0.9.0 RELEASE (2026-08-27)------
 
 Compatibility and installation
 * require Ruby 3.2 or newer
@@ -14,6 +14,9 @@ Testing and automation
 * update obsolete feature steps, expectations, and fixtures
 * add regression coverage for release metadata, optical-drive errors,
   output collisions, desktop launchers, and MusicBrainz service failures
+* add coverage for metadata-source selection, provider fallback, disabled
+  metadata, network timeouts, and manual startup scanning
+* make GTK startup tests run reliably in headless CI
 
 Fixes and behavior
 * fix the CLI debug preference advertised as option 10 but handled as 19
@@ -24,12 +27,25 @@ Fixes and behavior
 * organize new default output paths by artist and album instead of codec
 * open logs and each unique output folder with the desktop's default applications
 * handle broken MusicBrainz responses and prevent them from wrecking a disc read.
+* wait for an explicit scan request at startup so preferences can be reviewed
+  before any disc or metadata lookup
+* report the metadata provider actually used in GTK, CLI, and rip logs,
+  including fallback from either configured primary provider
+* clearly distinguish disabled metadata from cases where MusicBrainz and GnuDB
+  both return no usable result
+* bound metadata network connection and response waits so an unavailable
+  provider falls back instead of making the application appear frozen
+* write one fresh logfile per rip session, without duplicated output when
+  multiple codecs share an album directory
+* use the current project URL and version in logs and render rip dates cleanly
 
 Interface and project identity
 * set the application version to 0.9.0 and point it to the maintained repository
 * replace the obsolete Ruby 1.9 check with the supported Ruby 3.2 baseline
 * clarify the rip-completion messages and rename "Open directory" to "Open folder" (modernizing terminology)
+* add startup guidance for scanning a disc or reviewing preferences first
 * update translation catalogs for the 0.9.0 release and current issue tracker
+* correct inherited language and plural metadata in seven translation catalogs
 
 ---------0.8.0 RELEASE------
 * changed 'NoSpaces' preference's behavior; it does nothing if not activated
