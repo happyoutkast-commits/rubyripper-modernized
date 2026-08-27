@@ -7,15 +7,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Rubyripper 0.9.0\n"
-"Report-Msgid-Bugs-To: https://github.com/happyoutkast-commits/rubyripper-modernized/issues\n"
+"Report-Msgid-Bugs-To: "
+"https://github.com/happyoutkast-commits/rubyripper-modernized/issues\n"
 "PO-Revision-Date: 2021-02-28 19:13+0100\n"
 "Last-Translator: BleskoDev <bleskodev@ennumia.eu>\n"
-"Language-Team: French <bleskodev@ennumia.eu>\n"
+"Language-Team: Dutch\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
-"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: nl\n"
 "X-Generator: Gtranslator 3.38.0\n"
 
 msgid "y"
@@ -63,14 +64,17 @@ msgstr "Los s.v.p. eerst de volgende configuratie fouten op:"
 msgid "Rip is canceled, exiting..."
 msgstr "De rip is geannuleerd, aan 't afsluiten..."
 
-msgid "The output directory already exists. What would you like to do?"
-msgstr "De opgegeven uitvoer directory bestaat al. Wat wilt u doen?"
+#, fuzzy
+msgid "The following output file(s) already exist:"
+msgstr "j"
 
-msgid "1) Auto rename the output directory"
-msgstr "1) Automatisch de directory hernoemen"
+#, fuzzy
+msgid "1) Auto rename only the new file(s)"
+msgstr "j"
 
-msgid "2) Overwrite the existing directory"
-msgstr "2) De bestaande directory overschrijven"
+#, fuzzy
+msgid "2) Overwrite only the conflicting file(s)"
+msgstr "j"
 
 msgid "3) Cancel the rip and eject the disc"
 msgstr "3) De rip annuleren en de lade openen"
@@ -152,6 +156,10 @@ msgstr "Aantal tracks: %s"
 
 msgid "Total playtime: %s"
 msgstr "Totale speelduur: %s"
+
+#, fuzzy
+msgid "Metadata source:"
+msgstr "Metadata"
 
 msgid "Artist:"
 msgstr "Artiest:"
@@ -613,6 +621,12 @@ msgstr "Geen audio disk gevonden in drive %s."
 msgid "%s does not recognize the parameters used."
 msgstr "%s herkent de meegegeven parameters niet."
 
+#, fuzzy
+msgid ""
+"No optical drive was detected.\n"
+"Make sure the drive is connected and powered on, then try again."
+msgstr "Nee"
+
 msgid "The device %s doesn't exist on your system!"
 msgstr "Het apparaat %s bestaat niet op uw systeem!"
 
@@ -673,36 +687,6 @@ msgstr "Verborgen track"
 msgid "Unknown Artist"
 msgstr "Onbekende Artiest"
 
-msgid ""
-"The directory %s already exists.\n"
-"\n"
-"What do you want rubyripper to do?"
-msgstr ""
-"De directory %s bestaat al.\n"
-"\n"
-"Wat wilt u dat rubyripper doet?"
-
-msgid "Cancel rip"
-msgstr "Rip annuleren"
-
-msgid ""
-"Delete existing\n"
-"directory"
-msgstr ""
-"Verwijder bestaande\n"
-"directory"
-
-msgid ""
-"Auto rename\n"
-"directory"
-msgstr ""
-"Directory auto\n"
-"hernoemen"
-
-#, fuzzy
-msgid "Directory already exists..."
-msgstr "Directory bestaat al..."
-
 msgid "Mark disc as various artist"
 msgstr "Markeer disk als verscheidene artiesten"
 
@@ -736,6 +720,49 @@ msgstr "<b>Disk info</b>"
 
 msgid "<b>Track selection</b>"
 msgstr "<b>Track selectie</b>"
+
+msgid "Cancel rip"
+msgstr "Rip annuleren"
+
+#, fuzzy
+msgid ""
+"Overwrite conflicting\n"
+"file(s)"
+msgstr "n"
+
+#, fuzzy
+msgid ""
+"Auto rename new\n"
+"file(s)"
+msgstr "n"
+
+#, fuzzy
+msgid "Output file already exists"
+msgstr "Output bestand"
+
+#, fuzzy
+msgid ""
+"\n"
+"â¦and %s more."
+msgstr "n"
+
+#, fuzzy
+msgid ""
+"The following output file already exists:\n"
+"\n"
+"%s\n"
+"\n"
+"What should Rubyripper do?"
+msgstr "j"
+
+#, fuzzy
+msgid ""
+"%s output files already exist:\n"
+"\n"
+"%s\n"
+"\n"
+"What should Rubyripper do?"
+msgstr "j"
 
 msgid ""
 "The gnudb server reports multiple hits.\n"
@@ -1096,6 +1123,14 @@ msgstr ""
 msgid "Welcome to rubyripper %s."
 msgstr "Welkom bij rubyripper versie %s."
 
+#, fuzzy
+msgid "Insert a disc and press 'Scan drive' to scan it in preparation for ripping."
+msgstr "Scan drive"
+
+#, fuzzy
+msgid "Alternatively, open 'Preferences' to choose your preferred options first."
+msgstr "Voorkeuren"
+
 msgid ""
 "No disc found in %s!\n"
 "Please insert a disc and push 'Scan drive'.\n"
@@ -1254,8 +1289,8 @@ msgstr "Er waren fouten die niet gecorrigeerd konden worden"
 msgid ""
 "Some track(s) could NOT be corrected within the maximum amount of trials\n"
 msgstr ""
-"Sommige track(s) konden NIET worden gerepareerd binnen het maximum aantal pogi"
-"ngen\n"
+"Sommige track(s) konden NIET worden gerepareerd binnen het maximum aantal "
+"pogingen\n"
 
 msgid ""
 "Track %s could NOT be corrected completely\n"
@@ -1289,6 +1324,13 @@ msgstr "Onbekend"
 
 msgid "Track %s"
 msgstr "Track %s"
+
+#, fuzzy
+msgid "None (no usable metadata from MusicBrainz or GnuDB)"
+msgstr "nee"
+
+msgid "%s (fallback from %s)"
+msgstr ""
 
 msgid ""
 "\n"
@@ -1432,16 +1474,16 @@ msgid ""
 "You won't have accurate Gnudb string \\\n"
 "calculation unless %s is installed."
 msgstr ""
-"U heeft geen accurate Gnudb sleutel calculatie beschikbaar tenzij %s is geïnst"
-"alleerd."
+"U heeft geen accurate Gnudb sleutel calculatie beschikbaar tenzij %s is "
+"geïnstalleerd."
 
 #, fuzzy
 msgid ""
 "You won't have accurate Gnnudb string \\\n"
 "calculation unless %s is installed."
 msgstr ""
-"U heeft geen accurate Gnudb sleutel calculatie beschikbaar tenzij %s is geïnst"
-"alleerd."
+"U heeft geen accurate Gnudb sleutel calculatie beschikbaar tenzij %s is "
+"geïnstalleerd."
 
 msgid "Your disc tray can not be opened after ripping"
 msgstr "Uw cdrom lade kan niet worden geopend na het rippen"

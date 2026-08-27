@@ -9,7 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Rubyripper 0.9.0\n"
-"Report-Msgid-Bugs-To: https://github.com/happyoutkast-commits/rubyripper-modernized/issues\n"
+"Report-Msgid-Bugs-To: "
+"https://github.com/happyoutkast-commits/rubyripper-modernized/issues\n"
 "PO-Revision-Date: 2021-04-04 19:17+0200\n"
 "Last-Translator: BleskoDev <bleskodev@ennumia.eu>\n"
 "Language-Team: French <bleskodev@ennumia.eu>\n"
@@ -65,14 +66,17 @@ msgstr "Veuillez d'abord régler les problèmes de configuration suivants :"
 msgid "Rip is canceled, exiting..."
 msgstr "Extraction annulée, abandon..."
 
-msgid "The output directory already exists. What would you like to do?"
-msgstr "Le dossier de destination existe déjà. Que voulez-vous faire ?"
+#, fuzzy
+msgid "The following output file(s) already exist:"
+msgstr "o"
 
-msgid "1) Auto rename the output directory"
-msgstr "1) Renommer automatiquement le dossier de destination"
+#, fuzzy
+msgid "1) Auto rename only the new file(s)"
+msgstr "o"
 
-msgid "2) Overwrite the existing directory"
-msgstr "2) Écraser le dossier de destination"
+#, fuzzy
+msgid "2) Overwrite only the conflicting file(s)"
+msgstr "o"
 
 msgid "3) Cancel the rip and eject the disc"
 msgstr "3) Annuler l'extraction et éjecter le disque"
@@ -154,6 +158,10 @@ msgstr "Nombre de  pistes : %s"
 
 msgid "Total playtime: %s"
 msgstr "Durée totale : %s"
+
+#, fuzzy
+msgid "Metadata source:"
+msgstr "Métadonnées"
 
 msgid "Artist:"
 msgstr "Artiste :"
@@ -265,8 +273,8 @@ msgstr "Décalage pour ce lecteur :"
 
 msgid "Find your offset at http://www.accuraterip.com/driveoffsets.htm."
 msgstr ""
-"   **Vous trouverez le décalage pour votre lecteur sur http://www.accuraterip."
-"com/driveoffsets.htm.\n"
+"   **Vous trouverez le décalage pour votre lecteur sur "
+"http://www.accuraterip.com/driveoffsets.htm.\n"
 "   **Le modèle de votre lecteur est indiqué dans le journal."
 
 msgid "Your drive model is shown in the logfile."
@@ -609,6 +617,12 @@ msgstr "Aucun disque audio de prêt dans %s."
 msgid "%s does not recognize the parameters used."
 msgstr "%s ne reconnaît pas le paramètre utilisé."
 
+#, fuzzy
+msgid ""
+"No optical drive was detected.\n"
+"Make sure the drive is connected and powered on, then try again."
+msgstr "Non"
+
 msgid "The device %s doesn't exist on your system!"
 msgstr "Le périphérique %s n’existe pas dans votre système !"
 
@@ -671,37 +685,6 @@ msgstr "Piste cachée"
 msgid "Unknown Artist"
 msgstr "Artiste inconnu"
 
-msgid ""
-"The directory %s already exists.\n"
-"\n"
-"What do you want rubyripper to do?"
-msgstr ""
-"Le dossier %s existe déjà.\n"
-"\n"
-"Que voulez-vous que rubyripper fasse ?"
-
-msgid "Cancel rip"
-msgstr ""
-"Abandonne\n"
-"l'extraction"
-
-msgid ""
-"Delete existing\n"
-"directory"
-msgstr ""
-"Efface le dossier\n"
-"existant"
-
-msgid ""
-"Auto rename\n"
-"directory"
-msgstr ""
-"Renomme le dossier\n"
-"automatiquement"
-
-msgid "Directory already exists..."
-msgstr "Le dossier existe déjà..."
-
 msgid "Mark disc as various artist"
 msgstr "Marquer le disque comme « Artistes Divers »"
 
@@ -732,6 +715,51 @@ msgstr "<b>Infos sur le disque</b>"
 
 msgid "<b>Track selection</b>"
 msgstr "<b>Sélection des pistes</b>"
+
+msgid "Cancel rip"
+msgstr ""
+"Abandonne\n"
+"l'extraction"
+
+#, fuzzy
+msgid ""
+"Overwrite conflicting\n"
+"file(s)"
+msgstr "n"
+
+#, fuzzy
+msgid ""
+"Auto rename new\n"
+"file(s)"
+msgstr "n"
+
+#, fuzzy
+msgid "Output file already exists"
+msgstr "Fichier de sortie"
+
+#, fuzzy
+msgid ""
+"\n"
+"â¦and %s more."
+msgstr "n"
+
+#, fuzzy
+msgid ""
+"The following output file already exists:\n"
+"\n"
+"%s\n"
+"\n"
+"What should Rubyripper do?"
+msgstr "o"
+
+#, fuzzy
+msgid ""
+"%s output files already exist:\n"
+"\n"
+"%s\n"
+"\n"
+"What should Rubyripper do?"
+msgstr "o"
 
 msgid ""
 "The gnudb server reports multiple hits.\n"
@@ -879,8 +907,8 @@ msgid ""
 msgstr ""
 "Une piste cachée sera extraite dans un fichier séparé si le\n"
 "« Mode piste » est sélectionné.\n"
-"Si elle est inférieure, les secteurs seront ajoutés au début de la première pi"
-"ste."
+"Si elle est inférieure, les secteurs seront ajoutés au début de la première "
+"piste."
 
 msgid "Audio sectors before track 1"
 msgstr "Secteurs audio avant la piste 1"
@@ -929,8 +957,8 @@ msgid ""
 "%y=year %n=track %va=various artist %o=output file %i=input file"
 msgstr ""
 "%a=artiste %g=genre %t=nom de la piste %f=codec   %b=album\n"
-"%y=année %n=piste %va=artistes divers %o = fichier de sortie %i = fichier d'en"
-"trée"
+"%y=année %n=piste %va=artistes divers %o = fichier de sortie %i = fichier "
+"d'entrée"
 
 msgid "Create m3u playlist"
 msgstr "Créer une liste de lecture m3u"
@@ -1075,6 +1103,14 @@ msgstr "...À la recherche d'un disque audio dans %s."
 
 msgid "Welcome to rubyripper %s."
 msgstr "Bienvenue dans rubyripper %s"
+
+#, fuzzy
+msgid "Insert a disc and press 'Scan drive' to scan it in preparation for ripping."
+msgstr "Analyse du lecteur"
+
+#, fuzzy
+msgid "Alternatively, open 'Preferences' to choose your preferred options first."
+msgstr "Préférences"
 
 msgid ""
 "No disc found in %s!\n"
@@ -1269,6 +1305,13 @@ msgstr "Inconnu"
 msgid "Track %s"
 msgstr "Piste %s"
 
+#, fuzzy
+msgid "None (no usable metadata from MusicBrainz or GnuDB)"
+msgstr "non"
+
+msgid "%s (fallback from %s)"
+msgstr ""
+
 msgid ""
 "\n"
 "Website:"
@@ -1384,8 +1427,8 @@ msgstr "La taille du fichier est incorrecte ! Nouvel essai"
 
 msgid "Sector mismatches at the following times, requiring extra trials:"
 msgstr ""
-"Non-concordance des secteurs aux positions suivantes, essais supplémentaires r"
-"equis :"
+"Non-concordance des secteurs aux positions suivantes, essais supplémentaires "
+"requis :"
 
 #, fuzzy
 msgid "Drive has been spinning for more than 30 minutes."

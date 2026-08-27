@@ -7,15 +7,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Rubyripper 0.9.0\n"
-"Report-Msgid-Bugs-To: https://github.com/happyoutkast-commits/rubyripper-modernized/issues\n"
+"Report-Msgid-Bugs-To: "
+"https://github.com/happyoutkast-commits/rubyripper-modernized/issues\n"
 "PO-Revision-Date: 2021-02-28 19:19+0100\n"
 "Last-Translator: BleskoDev <bleskodev@ennumia.eu>\n"
-"Language-Team: French <bleskodev@ennumia.eu>\n"
-"Language: fr\n"
+"Language-Team: German\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Generator: Gtranslator 3.38.0\n"
 
 msgid "y"
@@ -86,14 +87,17 @@ msgstr ""
 msgid "Rip is canceled, exiting..."
 msgstr "Auslesen abgebrochen, beenden..."
 
-msgid "The output directory already exists. What would you like to do?"
-msgstr "Das Ausgabeverzeichnis existiert bereits. Wie möchten Sie vorgehen?"
+#, fuzzy
+msgid "The following output file(s) already exist:"
+msgstr "j"
 
-msgid "1) Auto rename the output directory"
-msgstr "1) Ausgabeverzeichnis automatisch umbenennen"
+#, fuzzy
+msgid "1) Auto rename only the new file(s)"
+msgstr "j"
 
-msgid "2) Overwrite the existing directory"
-msgstr "2) Ausgabeverzeichnis überschreiben"
+#, fuzzy
+msgid "2) Overwrite only the conflicting file(s)"
+msgstr "j"
 
 msgid "3) Cancel the rip and eject the disc"
 msgstr "3) Rippen abbrechen und CD auswerfen"
@@ -189,6 +193,9 @@ msgid "Number of tracks: %s"
 msgstr "Momentan ausgewählte Titel : %s"
 
 msgid "Total playtime: %s"
+msgstr ""
+
+msgid "Metadata source:"
 msgstr ""
 
 msgid "Artist:"
@@ -715,6 +722,12 @@ msgstr "Keine CD in Laufwerk %s gefunden"
 msgid "%s does not recognize the parameters used."
 msgstr ""
 
+#, fuzzy
+msgid ""
+"No optical drive was detected.\n"
+"Make sure the drive is connected and powered on, then try again."
+msgstr "j"
+
 msgid "The device %s doesn't exist on your system!"
 msgstr "Das Laufwerk %s existiert nicht im System!"
 
@@ -775,39 +788,6 @@ msgstr "Versteckter Track"
 msgid "Unknown Artist"
 msgstr "Unbekannter Künstler"
 
-#, fuzzy
-msgid ""
-"The directory %s already exists.\n"
-"\n"
-"What do you want rubyripper to do?"
-msgstr ""
-"Das Verzeichnis %s existiert bereits.\n"
-"\n"
-"Wie möchten Sie vorgehen?"
-
-msgid "Cancel rip"
-msgstr "Auslesen abbrechen"
-
-#, fuzzy
-msgid ""
-"Delete existing\n"
-"directory"
-msgstr ""
-"Existierendes Verzeichnis\n"
-"überschreiben"
-
-#, fuzzy
-msgid ""
-"Auto rename\n"
-"directory"
-msgstr ""
-"Verzeichnis automatisch\n"
-"umbenennen"
-
-#, fuzzy
-msgid "Directory already exists..."
-msgstr "Verzeichnis besteht bereits..."
-
 msgid "Mark disc as various artist"
 msgstr "CD als \"Verschiedene Künstler\" markieren"
 
@@ -842,6 +822,49 @@ msgstr "<b>CD Info</b>"
 
 msgid "<b>Track selection</b>"
 msgstr "<b>Titelauswahl</b>"
+
+msgid "Cancel rip"
+msgstr "Auslesen abbrechen"
+
+#, fuzzy
+msgid ""
+"Overwrite conflicting\n"
+"file(s)"
+msgstr "n"
+
+#, fuzzy
+msgid ""
+"Auto rename new\n"
+"file(s)"
+msgstr "n"
+
+#, fuzzy
+msgid "Output file already exists"
+msgstr "j"
+
+#, fuzzy
+msgid ""
+"\n"
+"â¦and %s more."
+msgstr "n"
+
+#, fuzzy
+msgid ""
+"The following output file already exists:\n"
+"\n"
+"%s\n"
+"\n"
+"What should Rubyripper do?"
+msgstr "j"
+
+#, fuzzy
+msgid ""
+"%s output files already exist:\n"
+"\n"
+"%s\n"
+"\n"
+"What should Rubyripper do?"
+msgstr "j"
 
 msgid ""
 "The gnudb server reports multiple hits.\n"
@@ -1211,6 +1234,14 @@ msgid "Welcome to rubyripper %s."
 msgstr ""
 
 #, fuzzy
+msgid "Insert a disc and press 'Scan drive' to scan it in preparation for ripping."
+msgstr "Laufwerk abfragen"
+
+#, fuzzy
+msgid "Alternatively, open 'Preferences' to choose your preferred options first."
+msgstr "Einstellungen"
+
+#, fuzzy
 msgid ""
 "No disc found in %s!\n"
 "Please insert a disc and push 'Scan drive'.\n"
@@ -1412,6 +1443,13 @@ msgstr "Unbekannt"
 
 msgid "Track %s"
 msgstr "Track %s"
+
+#, fuzzy
+msgid "None (no usable metadata from MusicBrainz or GnuDB)"
+msgstr "nein"
+
+msgid "%s (fallback from %s)"
+msgstr ""
 
 msgid ""
 "\n"

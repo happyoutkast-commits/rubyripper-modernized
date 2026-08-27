@@ -7,15 +7,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Rubyripper 0.9.0\n"
-"Report-Msgid-Bugs-To: https://github.com/happyoutkast-commits/rubyripper-modernized/issues\n"
+"Report-Msgid-Bugs-To: "
+"https://github.com/happyoutkast-commits/rubyripper-modernized/issues\n"
 "PO-Revision-Date: 2021-02-28 19:20+0100\n"
 "Last-Translator: BleskoDev <bleskodev@ennumia.eu>\n"
-"Language-Team: French <bleskodev@ennumia.eu>\n"
-"Language: fr\n"
+"Language-Team: Hungarian\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Generator: Gtranslator 3.38.0\n"
 
 msgid "y"
@@ -72,14 +73,17 @@ msgstr ""
 msgid "Rip is canceled, exiting..."
 msgstr "Másolás leállítva, kilépés..."
 
-msgid "The output directory already exists. What would you like to do?"
-msgstr "A kimeneti mappa már létezik. Mit szeretnél tenni?"
+#, fuzzy
+msgid "The following output file(s) already exist:"
+msgstr "y"
 
-msgid "1) Auto rename the output directory"
-msgstr "1) Kimeneti mappa automatikus átnevezése"
+#, fuzzy
+msgid "1) Auto rename only the new file(s)"
+msgstr "y"
 
-msgid "2) Overwrite the existing directory"
-msgstr "2) Létező mappa felülírása"
+#, fuzzy
+msgid "2) Overwrite only the conflicting file(s)"
+msgstr "y"
 
 msgid "3) Cancel the rip and eject the disc"
 msgstr "3) Megszakítani a másolást, és a lemezt kivenni"
@@ -161,6 +165,9 @@ msgid "Number of tracks: %s"
 msgstr "Jelenleg kiválasztott számok : %s"
 
 msgid "Total playtime: %s"
+msgstr ""
+
+msgid "Metadata source:"
 msgstr ""
 
 msgid "Artist:"
@@ -286,8 +293,8 @@ msgstr "CD-ROM offset:"
 #, fuzzy
 msgid "Find your offset at http://www.accuraterip.com/driveoffsets.htm."
 msgstr ""
-"   **A megfelelő offset-et a http://www.accuraterip.com/driveoffsets.htm címen"
-" nézheted meg.\n"
+"   **A megfelelő offset-et a http://www.accuraterip.com/driveoffsets.htm "
+"címen nézheted meg.\n"
 "   **A meghajtód típusa a naplófájlban található."
 
 msgid "Your drive model is shown in the logfile."
@@ -667,6 +674,12 @@ msgstr "Nem található hanglemez a %s eszközben"
 msgid "%s does not recognize the parameters used."
 msgstr ""
 
+#, fuzzy
+msgid ""
+"No optical drive was detected.\n"
+"Make sure the drive is connected and powered on, then try again."
+msgstr "y"
+
 msgid "The device %s doesn't exist on your system!"
 msgstr "A %s eszköz nem létezik a rendszeren!"
 
@@ -727,37 +740,6 @@ msgstr ""
 msgid "Unknown Artist"
 msgstr ""
 
-#, fuzzy
-msgid ""
-"The directory %s already exists.\n"
-"\n"
-"What do you want rubyripper to do?"
-msgstr ""
-"A kimeneti mappa %s\n"
-"\n"
-"már létezik. Mit tegyen a rubyripper?"
-
-msgid "Cancel rip"
-msgstr "Másolás leállítása"
-
-#, fuzzy
-msgid ""
-"Delete existing\n"
-"directory"
-msgstr "2) Létező mappa felülírása"
-
-#, fuzzy
-msgid ""
-"Auto rename\n"
-"directory"
-msgstr ""
-"Mappa automatikus\n"
-"átnevezése"
-
-#, fuzzy
-msgid "Directory already exists..."
-msgstr "A mappa már létezik..."
-
 msgid "Mark disc as various artist"
 msgstr "A lemezen több előadó van"
 
@@ -791,6 +773,49 @@ msgstr "<b>Lemezinfó</b>"
 
 msgid "<b>Track selection</b>"
 msgstr "<b>Kiválaszott számok</b>"
+
+msgid "Cancel rip"
+msgstr "Másolás leállítása"
+
+#, fuzzy
+msgid ""
+"Overwrite conflicting\n"
+"file(s)"
+msgstr "n"
+
+#, fuzzy
+msgid ""
+"Auto rename new\n"
+"file(s)"
+msgstr "n"
+
+#, fuzzy
+msgid "Output file already exists"
+msgstr "y"
+
+#, fuzzy
+msgid ""
+"\n"
+"â¦and %s more."
+msgstr "n"
+
+#, fuzzy
+msgid ""
+"The following output file already exists:\n"
+"\n"
+"%s\n"
+"\n"
+"What should Rubyripper do?"
+msgstr "y"
+
+#, fuzzy
+msgid ""
+"%s output files already exist:\n"
+"\n"
+"%s\n"
+"\n"
+"What should Rubyripper do?"
+msgstr "y"
 
 msgid ""
 "The gnudb server reports multiple hits.\n"
@@ -1156,6 +1181,14 @@ msgid "Welcome to rubyripper %s."
 msgstr ""
 
 #, fuzzy
+msgid "Insert a disc and press 'Scan drive' to scan it in preparation for ripping."
+msgstr "Beolvasás"
+
+#, fuzzy
+msgid "Alternatively, open 'Preferences' to choose your preferred options first."
+msgstr "Beállítások"
+
+#, fuzzy
 msgid ""
 "No disc found in %s!\n"
 "Please insert a disc and push 'Scan drive'.\n"
@@ -1355,6 +1388,13 @@ msgstr "Ismeretlen"
 
 msgid "Track %s"
 msgstr "%s. szám"
+
+#, fuzzy
+msgid "None (no usable metadata from MusicBrainz or GnuDB)"
+msgstr "nem"
+
+msgid "%s (fallback from %s)"
+msgstr ""
 
 msgid ""
 "\n"

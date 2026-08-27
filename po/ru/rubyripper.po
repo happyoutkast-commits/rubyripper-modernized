@@ -7,7 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Rubyripper 0.9.0\n"
-"Report-Msgid-Bugs-To: https://github.com/happyoutkast-commits/rubyripper-modernized/issues\n"
+"Report-Msgid-Bugs-To: "
+"https://github.com/happyoutkast-commits/rubyripper-modernized/issues\n"
 "PO-Revision-Date: 2010-01-29 18:48+0300\n"
 "Last-Translator: maksymov <maksymov.vlad@gmail.com>\n"
 "Language-Team: Russian <rc.4096@gmail.com>\n"
@@ -70,14 +71,17 @@ msgstr "Пожалуйста, устраните следующие ошибки
 msgid "Rip is canceled, exiting..."
 msgstr "Копирование отменено, выходим..."
 
-msgid "The output directory already exists. What would you like to do?"
-msgstr "Директория уже существует. Что делать?"
+#, fuzzy
+msgid "The following output file(s) already exist:"
+msgstr "д"
 
-msgid "1) Auto rename the output directory"
-msgstr "1) Автоматически переименовать директорию"
+#, fuzzy
+msgid "1) Auto rename only the new file(s)"
+msgstr "д"
 
-msgid "2) Overwrite the existing directory"
-msgstr "2) Заменить директорию"
+#, fuzzy
+msgid "2) Overwrite only the conflicting file(s)"
+msgstr "д"
 
 msgid "3) Cancel the rip and eject the disc"
 msgstr "3) Отменить копирование и извлечь диск"
@@ -160,6 +164,10 @@ msgstr "Выбранные дорожки: %s"
 
 msgid "Total playtime: %s"
 msgstr "Общее время воспроизведения: %s"
+
+#, fuzzy
+msgid "Metadata source:"
+msgstr "Метаданные"
 
 msgid "Artist:"
 msgstr "Исполнитель:"
@@ -288,8 +296,8 @@ msgstr "Смещение привода:"
 #, fuzzy
 msgid "Find your offset at http://www.accuraterip.com/driveoffsets.htm."
 msgstr ""
-"   **Найдите смещение для своего привода на <http://www.accuraterip.com/driveo"
-"ffsets.htm.\n"
+"   **Найдите смещение для своего привода на "
+"<http://www.accuraterip.com/driveoffsets.htm.\n"
 "   **Модель вашего привода отображается в журнале."
 
 msgid "Your drive model is shown in the logfile."
@@ -698,6 +706,12 @@ msgstr "В драйвере %s нет готового аудио диска"
 msgid "%s does not recognize the parameters used."
 msgstr "%s не может распознать используемые параметры."
 
+#, fuzzy
+msgid ""
+"No optical drive was detected.\n"
+"Make sure the drive is connected and powered on, then try again."
+msgstr "Нет"
+
 msgid "The device %s doesn't exist on your system!"
 msgstr "Устройства %s в вашей системе не существует!"
 
@@ -758,41 +772,6 @@ msgstr "Скрытые дорожки"
 msgid "Unknown Artist"
 msgstr "Неизвестный Исполнитель"
 
-#, fuzzy
-msgid ""
-"The directory %s already exists.\n"
-"\n"
-"What do you want rubyripper to do?"
-msgstr ""
-"Директория %s уже существует.\n"
-"\n"
-"Что необходимо сделать?"
-
-msgid "Cancel rip"
-msgstr ""
-"Отменить\n"
-"копирование"
-
-#, fuzzy
-msgid ""
-"Delete existing\n"
-"directory"
-msgstr ""
-"Удалить существующую\n"
-"директорию"
-
-#, fuzzy
-msgid ""
-"Auto rename\n"
-"directory"
-msgstr ""
-"Переименовать\n"
-"директорию"
-
-#, fuzzy
-msgid "Directory already exists..."
-msgstr "Директория уже существует..."
-
 msgid "Mark disc as various artist"
 msgstr "Сборник (разные исполнители)"
 
@@ -828,6 +807,51 @@ msgstr "<b>Информация о диске</b>"
 
 msgid "<b>Track selection</b>"
 msgstr "<b>Выбор дорожек</b>"
+
+msgid "Cancel rip"
+msgstr ""
+"Отменить\n"
+"копирование"
+
+#, fuzzy
+msgid ""
+"Overwrite conflicting\n"
+"file(s)"
+msgstr "н"
+
+#, fuzzy
+msgid ""
+"Auto rename new\n"
+"file(s)"
+msgstr "н"
+
+#, fuzzy
+msgid "Output file already exists"
+msgstr "д"
+
+#, fuzzy
+msgid ""
+"\n"
+"â¦and %s more."
+msgstr "н"
+
+#, fuzzy
+msgid ""
+"The following output file already exists:\n"
+"\n"
+"%s\n"
+"\n"
+"What should Rubyripper do?"
+msgstr "д"
+
+#, fuzzy
+msgid ""
+"%s output files already exist:\n"
+"\n"
+"%s\n"
+"\n"
+"What should Rubyripper do?"
+msgstr "д"
 
 #, fuzzy
 msgid ""
@@ -1208,6 +1232,14 @@ msgid "Welcome to rubyripper %s."
 msgstr "Добро пожаловать в rubyripper %s."
 
 #, fuzzy
+msgid "Insert a disc and press 'Scan drive' to scan it in preparation for ripping."
+msgstr "Сканировать дисковод"
+
+#, fuzzy
+msgid "Alternatively, open 'Preferences' to choose your preferred options first."
+msgstr "Настройки"
+
+#, fuzzy
 msgid ""
 "No disc found in %s!\n"
 "Please insert a disc and push 'Scan drive'.\n"
@@ -1412,6 +1444,13 @@ msgstr "Неизвестный"
 
 msgid "Track %s"
 msgstr "Дорожка %s"
+
+#, fuzzy
+msgid "None (no usable metadata from MusicBrainz or GnuDB)"
+msgstr "нет"
+
+msgid "%s (fallback from %s)"
+msgstr ""
 
 msgid ""
 "\n"

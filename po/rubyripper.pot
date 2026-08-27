@@ -1,15 +1,16 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2021 BleskoDev
+# Copyright (C) 2026 Rubyripper contributors
 # This file is distributed under the same license as the Rubyripper package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Rubyripper 0.9.0\n"
-"Report-Msgid-Bugs-To: https://github.com/happyoutkast-commits/rubyripper-modernized/issues\n"
-"POT-Creation-Date: 2026-08-26 00:00+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Report-Msgid-Bugs-To: "
+"https://github.com/happyoutkast-commits/rubyripper-modernized/issues\n"
+"POT-Creation-Date: 2026-08-27 06:08-0700\n"
+"PO-Revision-Date: 2026-08-27 06:08-0700\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -27,7 +28,7 @@ msgid "Do you want to change your settings? (y/n) : "
 msgstr ""
 
 #: ../bin/rubyripper_cli:82 ../lib/rubyripper/cli/cliArguments.rb:47
-#: ../lib/rubyripper/rippingInfoAtStart.rb:49
+#: ../lib/rubyripper/rippingInfoAtStart.rb:52
 msgid "Rubyripper version %s"
 msgstr ""
 
@@ -71,7 +72,7 @@ msgstr ""
 msgid "Number %s is not a valid choice, try again"
 msgstr ""
 
-#: ../bin/rubyripper_cli:139 ../bin/rubyripper_gtk3:418
+#: ../bin/rubyripper_cli:139 ../bin/rubyripper_gtk3:438
 msgid "Please solve the following configuration errors first:"
 msgstr ""
 
@@ -80,68 +81,68 @@ msgid "Rip is canceled, exiting..."
 msgstr ""
 
 #: ../bin/rubyripper_cli:168
-msgid "The output directory already exists. What would you like to do?"
-msgstr ""
-
-#: ../bin/rubyripper_cli:170
-msgid "1) Auto rename the output directory"
+msgid "The following output file(s) already exist:"
 msgstr ""
 
 #: ../bin/rubyripper_cli:171
-msgid "2) Overwrite the existing directory"
+msgid "1) Auto rename only the new file(s)"
 msgstr ""
 
 #: ../bin/rubyripper_cli:172
+msgid "2) Overwrite only the conflicting file(s)"
+msgstr ""
+
+#: ../bin/rubyripper_cli:173
 msgid "3) Cancel the rip and eject the disc"
 msgstr ""
 
-#: ../bin/rubyripper_cli:175
+#: ../bin/rubyripper_cli:176
 msgid "Please enter the number of your choice: "
 msgstr ""
 
-#: ../bin/rubyripper_gtk3:134 ../bin/rubyripper_gtk3:237
-#: ../bin/rubyripper_gtk3:345 ../bin/rubyripper_gtk3:369
+#: ../bin/rubyripper_gtk3:151 ../bin/rubyripper_gtk3:254
+#: ../bin/rubyripper_gtk3:365 ../bin/rubyripper_gtk3:389
 msgid "Open tray"
 msgstr ""
 
-#: ../bin/rubyripper_gtk3:187
+#: ../bin/rubyripper_gtk3:204
 msgid "Ehh.. There shouldn't be anything else. WTF?"
 msgstr ""
 
-#: ../bin/rubyripper_gtk3:188
+#: ../bin/rubyripper_gtk3:205
 msgid "Secret modus = %s"
 msgstr ""
 
-#: ../bin/rubyripper_gtk3:205 ../bin/rubyripper_gtk3:239
-#: ../bin/rubyripper_gtk3:275
+#: ../bin/rubyripper_gtk3:222 ../bin/rubyripper_gtk3:256
+#: ../bin/rubyripper_gtk3:292
 msgid "Exit"
 msgstr ""
 
-#: ../bin/rubyripper_gtk3:211
+#: ../bin/rubyripper_gtk3:228
 msgid "Abort"
 msgstr ""
 
-#: ../bin/rubyripper_gtk3:235 ../bin/rubyripper_gtk3:294
+#: ../bin/rubyripper_gtk3:252 ../bin/rubyripper_gtk3:311
 msgid "Preferences"
 msgstr ""
 
-#: ../bin/rubyripper_gtk3:236
+#: ../bin/rubyripper_gtk3:253
 msgid "Scan drive"
 msgstr ""
 
-#: ../bin/rubyripper_gtk3:238
+#: ../bin/rubyripper_gtk3:255
 msgid "Rip cd now!"
 msgstr ""
 
-#: ../bin/rubyripper_gtk3:329
+#: ../bin/rubyripper_gtk3:346
 msgid "Disc info"
 msgstr ""
 
-#: ../bin/rubyripper_gtk3:364
+#: ../bin/rubyripper_gtk3:384
 msgid "Close tray"
 msgstr ""
 
-#: ../lib/rubyripper/base.rb:43
+#: ../lib/rubyripper/base.rb:44
 msgid "test"
 msgstr ""
 
@@ -202,68 +203,73 @@ msgstr ""
 msgid "Total playtime: %s"
 msgstr ""
 
-#: ../lib/rubyripper/cli/cliDisc.rb:93 ../lib/rubyripper/cli/cliDisc.rb:154
-#: ../lib/rubyripper/cli/cliDisc.rb:186 ../lib/rubyripper/gtk3/gtkDisc.rb:119
+#: ../lib/rubyripper/cli/cliDisc.rb:89 ../lib/rubyripper/gtk3/gtkDisc.rb:123
+#: ../lib/rubyripper/rippingInfoAtStart.rb:66
+msgid "Metadata source:"
+msgstr ""
+
+#: ../lib/rubyripper/cli/cliDisc.rb:96 ../lib/rubyripper/cli/cliDisc.rb:157
+#: ../lib/rubyripper/cli/cliDisc.rb:189 ../lib/rubyripper/gtk3/gtkDisc.rb:119
 msgid "Artist:"
 msgstr ""
 
-#: ../lib/rubyripper/cli/cliDisc.rb:94 ../lib/rubyripper/cli/cliDisc.rb:155
+#: ../lib/rubyripper/cli/cliDisc.rb:97 ../lib/rubyripper/cli/cliDisc.rb:158
 #: ../lib/rubyripper/gtk3/gtkDisc.rb:120
 msgid "Album:"
 msgstr ""
 
-#: ../lib/rubyripper/cli/cliDisc.rb:95 ../lib/rubyripper/cli/cliDisc.rb:156
+#: ../lib/rubyripper/cli/cliDisc.rb:98 ../lib/rubyripper/cli/cliDisc.rb:159
 #: ../lib/rubyripper/gtk3/gtkDisc.rb:121
 msgid "Genre:"
 msgstr ""
 
-#: ../lib/rubyripper/cli/cliDisc.rb:96 ../lib/rubyripper/cli/cliDisc.rb:157
+#: ../lib/rubyripper/cli/cliDisc.rb:99 ../lib/rubyripper/cli/cliDisc.rb:160
 #: ../lib/rubyripper/gtk3/gtkDisc.rb:122
 msgid "Year:"
 msgstr ""
 
-#: ../lib/rubyripper/cli/cliDisc.rb:97 ../lib/rubyripper/cli/cliDisc.rb:158
+#: ../lib/rubyripper/cli/cliDisc.rb:100 ../lib/rubyripper/cli/cliDisc.rb:161
 msgid "Extra disc info:"
 msgstr ""
 
-#: ../lib/rubyripper/cli/cliDisc.rb:98
+#: ../lib/rubyripper/cli/cliDisc.rb:101
 msgid "Marked as various disc? [%s]"
 msgstr ""
 
-#: ../lib/rubyripper/cli/cliDisc.rb:122
+#: ../lib/rubyripper/cli/cliDisc.rb:125
 msgid "EDIT METADATA"
 msgstr ""
 
-#: ../lib/rubyripper/cli/cliDisc.rb:124
+#: ../lib/rubyripper/cli/cliDisc.rb:127
 msgid "Edit the disc info"
 msgstr ""
 
-#: ../lib/rubyripper/cli/cliDisc.rb:125
+#: ../lib/rubyripper/cli/cliDisc.rb:128
 msgid "Edit the track info"
 msgstr ""
 
-#: ../lib/rubyripper/cli/cliDisc.rb:126
+#: ../lib/rubyripper/cli/cliDisc.rb:129
 msgid "Return to main menu"
 msgstr ""
 
-#: ../lib/rubyripper/cli/cliDisc.rb:144
+#: ../lib/rubyripper/cli/cliDisc.rb:147
 msgid "EDIT DISC INFO"
 msgstr ""
 
-#: ../lib/rubyripper/cli/cliDisc.rb:147 ../lib/rubyripper/cli/cliDisc.rb:176
+#: ../lib/rubyripper/cli/cliDisc.rb:150 ../lib/rubyripper/cli/cliDisc.rb:179
 msgid "Back to metadata menu"
 msgstr ""
 
-#: ../lib/rubyripper/cli/cliDisc.rb:168
+#: ../lib/rubyripper/cli/cliDisc.rb:171
 #: ../lib/rubyripper/cli/cliTracklist.rb:81
 msgid "Number %s is not a valid choice, try again."
 msgstr ""
 
-#: ../lib/rubyripper/cli/cliDisc.rb:173
+#: ../lib/rubyripper/cli/cliDisc.rb:176
 msgid "EDIT TRACK INFO"
 msgstr ""
 
-#: ../lib/rubyripper/cli/cliDisc.rb:188
+#: ../lib/rubyripper/cli/cliDisc.rb:191
 msgid "Track name:"
 msgstr ""
 
@@ -552,7 +558,7 @@ msgstr ""
 
 #: ../lib/rubyripper/cli/cliPreferences.rb:289
 #: ../lib/rubyripper/cli/cliPreferences.rb:408
-#: ../lib/rubyripper/gtk3/gtkDisc.rb:194
+#: ../lib/rubyripper/gtk3/gtkDisc.rb:212
 #: ../lib/rubyripper/gtk3/gtkPreferences.rb:665
 msgid "Artist"
 msgstr ""
@@ -783,35 +789,35 @@ msgstr ""
 msgid "ERROR: No audio tracks found!"
 msgstr ""
 
-#: ../lib/rubyripper/disc/scanDiscCdrdao.rb:174
+#: ../lib/rubyripper/disc/scanDiscCdrdao.rb:175
 msgid ""
 "\n"
 "ADVANCED TOC ANALYSIS (with cdrdao)\n"
 msgstr ""
 
-#: ../lib/rubyripper/disc/scanDiscCdrdao.rb:175
+#: ../lib/rubyripper/disc/scanDiscCdrdao.rb:176
 msgid ""
 "...please be patient, this may take a while\n"
 "\n"
 msgstr ""
 
-#: ../lib/rubyripper/disc/scanDiscCdrdao.rb:185
+#: ../lib/rubyripper/disc/scanDiscCdrdao.rb:186
 msgid ""
 "No pregap, silence, pre-emphasis or data track detected\n"
 "\n"
 msgstr ""
 
-#: ../lib/rubyripper/disc/scanDiscCdrdao.rb:190
+#: ../lib/rubyripper/disc/scanDiscCdrdao.rb:191
 msgid ""
 "Silence detected for disc : %s sectors\n"
 msgstr ""
 
-#: ../lib/rubyripper/disc/scanDiscCdrdao.rb:195
+#: ../lib/rubyripper/disc/scanDiscCdrdao.rb:196
 msgid ""
 "Pregap detected for track %s : %s sectors\n"
 msgstr ""
 
-#: ../lib/rubyripper/disc/scanDiscCdrdao.rb:203
+#: ../lib/rubyripper/disc/scanDiscCdrdao.rb:204
 msgid ""
 "Track %s is marked as a DATA track\n"
 msgstr ""
@@ -829,134 +835,157 @@ msgid "%s does not recognize the parameters used."
 msgstr ""
 
 #: ../lib/rubyripper/errors.rb:28
-msgid "The device %s doesn't exist on your system!"
+msgid ""
+"No optical drive was detected.\n"
+"Make sure the drive is connected and powered on, then try again."
 msgstr ""
 
 #: ../lib/rubyripper/errors.rb:29
+msgid "The device %s doesn't exist on your system!"
+msgstr ""
+
+#: ../lib/rubyripper/errors.rb:30
 msgid ""
 "No read permission for drive %s!\n"
 "This is required to scan the disc."
 msgstr ""
 
-#: ../lib/rubyripper/errors.rb:30
+#: ../lib/rubyripper/errors.rb:31
 msgid ""
 "No write permission for drive %s!\n"
 "This is required to scan the disc."
 msgstr ""
 
-#: ../lib/rubyripper/errors.rb:31
+#: ../lib/rubyripper/errors.rb:32
 msgid ""
 "No read + write permissions for drive %s!\n"
 "These are required to rip the disc."
 msgstr ""
 
-#: ../lib/rubyripper/errors.rb:32
+#: ../lib/rubyripper/errors.rb:33
 msgid "Please select at least one track."
 msgstr ""
 
-#: ../lib/rubyripper/errors.rb:33
+#: ../lib/rubyripper/errors.rb:34
 msgid "Please select at least one codec."
 msgstr ""
 
-#: ../lib/rubyripper/errors.rb:34
+#: ../lib/rubyripper/errors.rb:35
 msgid "No update function found in the user interface"
 msgstr ""
 
-#: ../lib/rubyripper/errors.rb:35
+#: ../lib/rubyripper/errors.rb:36
 msgid "%s is required, but not detected on your system!"
 msgstr ""
 
-#: ../lib/rubyripper/errors.rb:36
+#: ../lib/rubyripper/errors.rb:37
 msgid "Please install cdrdao or disable cuesheet generation."
 msgstr ""
 
-#: ../lib/rubyripper/errors.rb:37
+#: ../lib/rubyripper/errors.rb:38
 msgid ""
 "The program %s failed to execute correctly:\n"
 "%s"
 msgstr ""
 
-#: ../lib/rubyripper/errors.rb:38
+#: ../lib/rubyripper/errors.rb:39
 msgid ""
 "Can't create output directory!\n"
 "You have no writing access for directory %s"
 msgstr ""
 
-#: ../lib/rubyripper/errors.rb:46
+#: ../lib/rubyripper/errors.rb:47
 msgid "Error"
 msgstr ""
 
-#: ../lib/rubyripper/fileScheme.rb:269
+#: ../lib/rubyripper/fileScheme.rb:310
 msgid "Hidden Track"
 msgstr ""
 
-#: ../lib/rubyripper/fileScheme.rb:270
+#: ../lib/rubyripper/fileScheme.rb:311
 msgid "Unknown Artist"
 msgstr ""
 
-#: ../lib/rubyripper/gtk3/gtkDirExists.rb:29
-msgid ""
-"The directory %s already exists.\n"
-"\n"
-"What do you want rubyripper to do?"
-msgstr ""
-
-#: ../lib/rubyripper/gtk3/gtkDirExists.rb:38
-msgid "Cancel rip"
-msgstr ""
-
-#: ../lib/rubyripper/gtk3/gtkDirExists.rb:39
-msgid ""
-"Delete existing\n"
-"directory"
-msgstr ""
-
-#: ../lib/rubyripper/gtk3/gtkDirExists.rb:40
-msgid ""
-"Auto rename\n"
-"directory"
-msgstr ""
-
-#: ../lib/rubyripper/gtk3/gtkDirExists.rb:62
-msgid "Directory already exists..."
-msgstr ""
-
-#: ../lib/rubyripper/gtk3/gtkDisc.rb:123
+#: ../lib/rubyripper/gtk3/gtkDisc.rb:125
 msgid "Mark disc as various artist"
 msgstr ""
 
-#: ../lib/rubyripper/gtk3/gtkDisc.rb:125
+#: ../lib/rubyripper/gtk3/gtkDisc.rb:127
 msgid "Freeze disc info"
 msgstr ""
 
-#: ../lib/rubyripper/gtk3/gtkDisc.rb:126
+#: ../lib/rubyripper/gtk3/gtkDisc.rb:128
 msgid "Disc:"
 msgstr ""
 
-#: ../lib/rubyripper/gtk3/gtkDisc.rb:148
+#: ../lib/rubyripper/gtk3/gtkDisc.rb:152
 msgid ""
 "Use this option to keep the disc info\n"
 "for albums that span multiple discs"
 msgstr ""
 
-#: ../lib/rubyripper/gtk3/gtkDisc.rb:193
+#: ../lib/rubyripper/gtk3/gtkDisc.rb:211
 msgid "All"
 msgstr ""
 
-#: ../lib/rubyripper/gtk3/gtkDisc.rb:195
+#: ../lib/rubyripper/gtk3/gtkDisc.rb:213
 msgid "Track names \\(%s track(s)\\)"
 msgstr ""
 
-#: ../lib/rubyripper/gtk3/gtkDisc.rb:196
+#: ../lib/rubyripper/gtk3/gtkDisc.rb:214
 msgid "Length \\(%s\\)"
 msgstr ""
 
-#: ../lib/rubyripper/gtk3/gtkDisc.rb:271
+#: ../lib/rubyripper/gtk3/gtkDisc.rb:289
 msgid "<b>Disc info</b>"
 msgstr ""
 
-#: ../lib/rubyripper/gtk3/gtkDisc.rb:279
+#: ../lib/rubyripper/gtk3/gtkDisc.rb:297
 msgid "<b>Track selection</b>"
+msgstr ""
+
+#: ../lib/rubyripper/gtk3/gtkFileExists.rb:38
+msgid "Cancel rip"
+msgstr ""
+
+#: ../lib/rubyripper/gtk3/gtkFileExists.rb:39
+msgid ""
+"Overwrite conflicting\n"
+"file(s)"
+msgstr ""
+
+#: ../lib/rubyripper/gtk3/gtkFileExists.rb:40
+msgid ""
+"Auto rename new\n"
+"file(s)"
+msgstr ""
+
+#: ../lib/rubyripper/gtk3/gtkFileExists.rb:73
+msgid "Output file already exists"
+msgstr ""
+
+#: ../lib/rubyripper/gtk3/gtkFileExists.rb:84
+msgid ""
+"\n"
+"â¦and %s more."
+msgstr ""
+
+#: ../lib/rubyripper/gtk3/gtkFileExists.rb:87
+msgid ""
+"The following output file already exists:\n"
+"\n"
+"%s\n"
+"\n"
+"What should Rubyripper do?"
+msgstr ""
+
+#: ../lib/rubyripper/gtk3/gtkFileExists.rb:89
+msgid ""
+"%s output files already exist:\n"
+"\n"
+"%s\n"
+"\n"
+"What should Rubyripper do?"
 msgstr ""
 
 #: ../lib/rubyripper/gtk3/gtkMultipleFreedbHits.rb:29
@@ -1330,7 +1359,7 @@ msgid "Show options for \"File naming scheme\""
 msgstr ""
 
 #: ../lib/rubyripper/gtk3/gtkPreferences.rb:667
-#: ../lib/rubyripper/rippingInfoAtStart.rb:101
+#: ../lib/rubyripper/rippingInfoAtStart.rb:113
 msgid "Track"
 msgstr ""
 
@@ -1399,7 +1428,15 @@ msgstr ""
 msgid "Welcome to rubyripper %s."
 msgstr ""
 
-#: ../lib/rubyripper/gtk3/gtkShortMessage.rb:46
+#: ../lib/rubyripper/gtk3/gtkShortMessage.rb:39
+msgid "Insert a disc and press 'Scan drive' to scan it in preparation for ripping."
+msgstr ""
+
+#: ../lib/rubyripper/gtk3/gtkShortMessage.rb:41
+msgid "Alternatively, open 'Preferences' to choose your preferred options first."
+msgstr ""
+
+#: ../lib/rubyripper/gtk3/gtkShortMessage.rb:49
 msgid ""
 "No disc found in %s!\n"
 "Please insert a disc and push 'Scan drive'.\n"
@@ -1407,15 +1444,15 @@ msgid ""
 "The cdrom drive can be set in 'Preferences'."
 msgstr ""
 
-#: ../lib/rubyripper/gtk3/gtkShortMessage.rb:50
+#: ../lib/rubyripper/gtk3/gtkShortMessage.rb:53
 msgid "Opening tray of drive %s."
 msgstr ""
 
-#: ../lib/rubyripper/gtk3/gtkShortMessage.rb:54
+#: ../lib/rubyripper/gtk3/gtkShortMessage.rb:57
 msgid "Closing tray of the drive."
 msgstr ""
 
-#: ../lib/rubyripper/gtk3/gtkShortMessage.rb:58
+#: ../lib/rubyripper/gtk3/gtkShortMessage.rb:61
 msgid ""
 "Insert an audio-disc and press 'Close tray'.\n"
 "The drive will automatically be scanned for a disc.\n"
@@ -1423,31 +1460,31 @@ msgid ""
 "If the tray is already closed, press 'Scan drive'"
 msgstr ""
 
-#: ../lib/rubyripper/gtk3/gtkShortMessage.rb:62
+#: ../lib/rubyripper/gtk3/gtkShortMessage.rb:65
 msgid "The eject utility is not found on your system!"
 msgstr ""
 
-#: ../lib/rubyripper/gtk3/gtkSummary.rb:42
+#: ../lib/rubyripper/gtk3/gtkSummary.rb:55
 msgid ""
 "The rip completed successfully.\n"
 "A summary is shown below."
 msgstr ""
 
-#: ../lib/rubyripper/gtk3/gtkSummary.rb:45
+#: ../lib/rubyripper/gtk3/gtkSummary.rb:57
 msgid ""
 "The rip completed, but some problems were detected.\n"
 "Review the summary below for details."
 msgstr ""
 
-#: ../lib/rubyripper/gtk3/gtkSummary.rb:67
+#: ../lib/rubyripper/gtk3/gtkSummary.rb:78
 msgid "Open log file"
 msgstr ""
 
-#: ../lib/rubyripper/gtk3/gtkSummary.rb:77
+#: ../lib/rubyripper/gtk3/gtkSummary.rb:88
 msgid "Open folder"
 msgstr ""
 
-#: ../lib/rubyripper/gtk3/gtkSummary.rb:105
+#: ../lib/rubyripper/gtk3/gtkSummary.rb:133
 msgid "Ripping and encoding complete"
 msgstr ""
 
@@ -1457,245 +1494,253 @@ msgid ""
 "Album: %s\n"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:159
+#: ../lib/rubyripper/log.rb:168
 msgid "All chunks matched!"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:163
+#: ../lib/rubyripper/log.rb:172
 msgid "Corrected all sector mismatches! (%s matches found for each chunk)"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:167
+#: ../lib/rubyripper/log.rb:176
 msgid ""
 "Disc Image\n"
 "\n"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:167
+#: ../lib/rubyripper/log.rb:176
 msgid ""
 "Track %2d\n"
 "\n"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:168
+#: ../lib/rubyripper/log.rb:177
 msgid ""
 "File name %s\n"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:173
+#: ../lib/rubyripper/log.rb:182
 msgid ""
 "Trial %s: %s seconds (%sx)\n"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:178
+#: ../lib/rubyripper/log.rb:187
 msgid "Peak level %.1f %%"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:181
+#: ../lib/rubyripper/log.rb:190
 msgid "Trial %s (Copy) CRC %s"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:183
+#: ../lib/rubyripper/log.rb:192
 msgid "Trial %s (Test) CRC %s"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:187
+#: ../lib/rubyripper/log.rb:196
 msgid "Corrected CRC %s"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:193
+#: ../lib/rubyripper/log.rb:202
 msgid ""
 "Copy MD5: %s\n"
 "\n"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:197
+#: ../lib/rubyripper/log.rb:206
 msgid ""
 "\n"
 "WARNING: ENCODING ERRORS WERE DETECTED\n"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:198
+#: ../lib/rubyripper/log.rb:207
 msgid ""
 "\n"
 "RIPPING SUMMARY\n"
 "\n"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:200
+#: ../lib/rubyripper/log.rb:209
 msgid ""
 "All chunks were tried to match at least %s times.\n"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:202
+#: ../lib/rubyripper/log.rb:211
 msgid "Chunks that differed after %s trials,"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:203
+#: ../lib/rubyripper/log.rb:212
 msgid ""
 "\n"
 "were tried to match %s times.\n"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:207
+#: ../lib/rubyripper/log.rb:216
 msgid "No errors occurred"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:208
+#: ../lib/rubyripper/log.rb:217
 msgid ""
 "None of the tracks gave any problems\n"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:210
+#: ../lib/rubyripper/log.rb:219
 msgid "There were errors which could not be corrected"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:211
+#: ../lib/rubyripper/log.rb:220
 msgid ""
 "Some track(s) could NOT be corrected within the maximum amount of trials\n"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:214
+#: ../lib/rubyripper/log.rb:223
 msgid ""
 "Track %s could NOT be corrected completely\n"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:218
+#: ../lib/rubyripper/log.rb:227
 msgid "There were errors which required correction"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:219
+#: ../lib/rubyripper/log.rb:228
 msgid ""
 "Some track(s) needed correction,but could\n"
 "be corrected within the maximum amount of trials\n"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:222
+#: ../lib/rubyripper/log.rb:231
 msgid ""
 "There were errors during encoding\n"
 msgstr ""
 
-#: ../lib/rubyripper/log.rb:225
+#: ../lib/rubyripper/log.rb:234
 msgid ""
 "The exact positions of the suspicious chunks\n"
 "can be found in the ripping log\n"
 msgstr ""
 
-#: ../lib/rubyripper/metadata/data.rb:28
+#: ../lib/rubyripper/metadata/data.rb:29
 msgid "Unknown"
 msgstr ""
 
-#: ../lib/rubyripper/metadata/data.rb:29
+#: ../lib/rubyripper/metadata/data.rb:30
 msgid "Track %s"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:50
+#: ../lib/rubyripper/metadata/data.rb:116
+msgid "None (no usable metadata from MusicBrainz or GnuDB)"
+msgstr ""
+
+#: ../lib/rubyripper/metadata/data.rb:120
+msgid "%s (fallback from %s)"
+msgstr ""
+
+#: ../lib/rubyripper/rippingInfoAtStart.rb:53
 msgid ""
 "\n"
 "Website:"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:54
+#: ../lib/rubyripper/rippingInfoAtStart.rb:61
 msgid ""
 "Rubyripper extraction logfile from:\n"
 "%s\n"
 "\n"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:59
+#: ../lib/rubyripper/rippingInfoAtStart.rb:71
 msgid "Used drive"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:60
+#: ../lib/rubyripper/rippingInfoAtStart.rb:72
 msgid "Device"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:62
+#: ../lib/rubyripper/rippingInfoAtStart.rb:74
 msgid "Used ripper"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:63
-#: ../lib/rubyripper/rippingInfoAtStart.rb:91
+#: ../lib/rubyripper/rippingInfoAtStart.rb:75
+#: ../lib/rubyripper/rippingInfoAtStart.rb:103
 msgid "Selected options"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:65
+#: ../lib/rubyripper/rippingInfoAtStart.rb:77
 msgid "Matches required for all chunks"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:66
+#: ../lib/rubyripper/rippingInfoAtStart.rb:78
 msgid "Matches required for erroneous chunks"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:68
+#: ../lib/rubyripper/rippingInfoAtStart.rb:80
 msgid "Read offset correction"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:69
+#: ../lib/rubyripper/rippingInfoAtStart.rb:81
 msgid "Overread into Lead-In and Lead-Out"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:69
-#: ../lib/rubyripper/rippingInfoAtStart.rb:70
+#: ../lib/rubyripper/rippingInfoAtStart.rb:81
+#: ../lib/rubyripper/rippingInfoAtStart.rb:82
 msgid "No"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:70
+#: ../lib/rubyripper/rippingInfoAtStart.rb:82
 msgid ""
 "Fill up missing offset samples with silence : %s\n"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:70
-#: ../lib/rubyripper/rippingInfoAtStart.rb:71
+#: ../lib/rubyripper/rippingInfoAtStart.rb:82
+#: ../lib/rubyripper/rippingInfoAtStart.rb:83
 msgid "Yes"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:71
+#: ../lib/rubyripper/rippingInfoAtStart.rb:83
 msgid "Null samples used in CRC calculations"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:80
-#: ../lib/rubyripper/rippingInfoAtStart.rb:84
-#: ../lib/rubyripper/rippingInfoAtStart.rb:90
+#: ../lib/rubyripper/rippingInfoAtStart.rb:92
+#: ../lib/rubyripper/rippingInfoAtStart.rb:96
+#: ../lib/rubyripper/rippingInfoAtStart.rb:102
 msgid ""
 "Used output encoder : %s\n"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:80
+#: ../lib/rubyripper/rippingInfoAtStart.rb:92
 msgid "Internal WAVE routines"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:81
+#: ../lib/rubyripper/rippingInfoAtStart.rb:93
 msgid "Sample format"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:84
+#: ../lib/rubyripper/rippingInfoAtStart.rb:96
 msgid "User defined encoder"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:85
+#: ../lib/rubyripper/rippingInfoAtStart.rb:97
 msgid "Command line"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:99
+#: ../lib/rubyripper/rippingInfoAtStart.rb:111
 msgid ""
 "TOC of the extracted CD\n"
 "\n"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:101
+#: ../lib/rubyripper/rippingInfoAtStart.rb:113
 msgid "Start"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:102
+#: ../lib/rubyripper/rippingInfoAtStart.rb:114
 msgid "Length"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:102
+#: ../lib/rubyripper/rippingInfoAtStart.rb:114
 msgid "Start sector"
 msgstr ""
 
-#: ../lib/rubyripper/rippingInfoAtStart.rb:102
+#: ../lib/rubyripper/rippingInfoAtStart.rb:114
 msgid "End sector"
 msgstr ""
 
@@ -1741,75 +1786,75 @@ msgstr ""
 msgid "WARNING: No eject utility found!"
 msgstr ""
 
-#: ../lib/rubyripper/system/dependency.rb:104
+#: ../lib/rubyripper/system/dependency.rb:105
 msgid "Rubyripper can't be used without cdparanoia!"
 msgstr ""
 
-#: ../lib/rubyripper/system/dependency.rb:105
+#: ../lib/rubyripper/system/dependency.rb:106
 msgid "You won't be able to use the gtk3 interface."
 msgstr ""
 
-#: ../lib/rubyripper/system/dependency.rb:106
+#: ../lib/rubyripper/system/dependency.rb:107
 msgid "You won't be able to use translations."
 msgstr ""
 
-#: ../lib/rubyripper/system/dependency.rb:107
+#: ../lib/rubyripper/system/dependency.rb:108
 msgid ""
 "You won't have accurate Gnudb string \\\n"
 "calculation unless %s is installed."
 msgstr ""
 
-#: ../lib/rubyripper/system/dependency.rb:109
+#: ../lib/rubyripper/system/dependency.rb:110
 msgid ""
 "You won't have accurate Gnnudb string \\\n"
 "calculation unless %s is installed."
 msgstr ""
 
-#: ../lib/rubyripper/system/dependency.rb:111
+#: ../lib/rubyripper/system/dependency.rb:112
 msgid "Your disc tray can not be opened after ripping"
 msgstr ""
 
-#: ../lib/rubyripper/system/dependency.rb:112
+#: ../lib/rubyripper/system/dependency.rb:113
 msgid "You won't be able to encode in FLAC."
 msgstr ""
 
-#: ../lib/rubyripper/system/dependency.rb:113
+#: ../lib/rubyripper/system/dependency.rb:114
 msgid "You won't be able to encode in vorbis."
 msgstr ""
 
-#: ../lib/rubyripper/system/dependency.rb:114
+#: ../lib/rubyripper/system/dependency.rb:115
 msgid "You won't be able to encode in LAME mp3."
 msgstr ""
 
-#: ../lib/rubyripper/system/dependency.rb:115
+#: ../lib/rubyripper/system/dependency.rb:116
 msgid "You won't be able to replaygain WAVE files."
 msgstr ""
 
-#: ../lib/rubyripper/system/dependency.rb:116
+#: ../lib/rubyripper/system/dependency.rb:117
 msgid "You won't be able to replaygain vorbis files."
 msgstr ""
 
-#: ../lib/rubyripper/system/dependency.rb:117
+#: ../lib/rubyripper/system/dependency.rb:118
 msgid "You won't be able to replaygain LAME mp3 files."
 msgstr ""
 
-#: ../lib/rubyripper/system/dependency.rb:118
+#: ../lib/rubyripper/system/dependency.rb:119
 msgid "You won't be able to normalize audio files."
 msgstr ""
 
-#: ../lib/rubyripper/system/dependency.rb:119
+#: ../lib/rubyripper/system/dependency.rb:120
 msgid "You won't be able to make cuesheets"
 msgstr ""
 
-#: ../lib/rubyripper/system/dependency.rb:120
+#: ../lib/rubyripper/system/dependency.rb:121
 msgid "Cd-info helps to detect data tracks."
 msgstr ""
 
-#: ../lib/rubyripper/system/dependency.rb:121
+#: ../lib/rubyripper/system/dependency.rb:122
 msgid "Show rights in case of problems"
 msgstr ""
 
-#: ../lib/rubyripper/system/dependency.rb:187
+#: ../lib/rubyripper/system/dependency.rb:188
 msgid ""
 "\n"
 "\n"
@@ -1817,7 +1862,7 @@ msgid ""
 "\n"
 msgstr ""
 
-#: ../lib/rubyripper/system/dependency.rb:189
+#: ../lib/rubyripper/system/dependency.rb:190
 msgid ""
 "\n"
 "CHECKING OPTIONAL DEPENDENCIES\n"
