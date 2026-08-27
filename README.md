@@ -16,7 +16,7 @@ preserving the original project history, tags, and copyright notices. Version
 
 - secure multi-pass ripping with correction reporting
 - GTK3 and command-line interfaces
-- GnuDB and MusicBrainz metadata lookup
+- MusicBrainz and GnuDB metadata lookup with visible fallback reporting
 - FLAC, Vorbis, MP3, WAV, Opus, WavPack, AAC, and custom codec support
 - playlists, logs, ReplayGain, normalization, drive offsets, and cuesheets
 - per-file collision handling without deleting an existing album folder
@@ -73,12 +73,12 @@ sudo apt install \
 ```
 
 The GTK frontend uses **GTK3**, not GTK4. The Ruby GTK3 gem is installed by
-Bundler; a distribution package named `ruby-gtk3` is not required. You no 
-longer have to go on an archeological expedition to find the package.
+Bundler; a distribution package named `ruby-gtk3` is not required. You no
+longer have to go on an archaeological expedition to find the package.
 
 These package instructions should also apply to other Debian derivatives,
 including Parrot OS, but only Debian, Ubuntu, and Linux Mint are currently
-covered by testing. ParrotOS testing has been scheduled for a random time
+covered by testing. Parrot OS testing has been scheduled for a random time
 by a pack of wild llamas.
 
 ### 2. Clone the repository
@@ -131,9 +131,26 @@ bundle exec ./bin/rubyripper_gtk3
 bundle exec ./bin/rubyripper_cli
 ```
 
+The GTK interface starts without scanning the drive. This gives you a chance
+to review Preferences before Rubyripper reads a disc or contacts a metadata
+provider. When you are ready, insert a disc and press **Scan drive**.
+
 Run the GTK launcher from a graphical desktop session. A plain SSH session has
 no display unless graphical forwarding has been configured and will produce a
 `Gtk::InitError`.
+
+## Metadata lookup
+
+Preferences lets you choose MusicBrainz, GnuDB, or None. When a provider is
+selected, Rubyripper tries it first and uses the other provider as a fallback.
+The GTK interface, command-line interface, and ripping log show which provider
+actually supplied the metadata, including when a fallback was used.
+
+Selecting None prevents online metadata lookups. If metadata is disabled, or
+if neither provider returns anything useful, Rubyripper uses `Unknown` and
+`Track N` placeholders that can be edited before ripping. Network lookups have
+time limits, so a dead provider should fall back instead of making Rubyripper
+appear frozen.
 
 ## Optional tools
 
@@ -249,4 +266,4 @@ copyright notices are retained.
 ## License
 
 Rubyripper is distributed under the GNU General Public License, version 3 or
-later. See [COPYING](COPYING) for the complete license.
+later. See [GPL-3.txt](GPL-3.txt) for the complete license.
