@@ -17,7 +17,7 @@ describe ShortMessage do
     message.instance_variable_set(:@display, display)
 
     expected_text =
-      "Welcome to rubyripper 0.9.0.\n\n" \
+      "Welcome to rubyripper #{Rubyripper::VERSION}.\n\n" \
       "Insert a disc and press 'Scan drive' to scan it in preparation for ripping.\n\n" \
       "Alternatively, open 'Preferences' to choose your preferred options first."
 
