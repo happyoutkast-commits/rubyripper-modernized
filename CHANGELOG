@@ -2,50 +2,47 @@
 
 Compatibility and installation
 * require Ruby 3.2 or newer
-* add a Bundler manifest and lockfile for reproducible installations, resolving some common dependency issues.
-* declare modern standard-library, GUI, translation, and test dependencies
-* support the Bundler version packaged with Ubuntu and Linux Mint (they use an older version than debian)
-* document installation, testing, and source-tree launch workflows 
+* add a Gemfile and lockfile so installs use a tested set of dependencies
+* list the Ruby, GTK, translation, and test dependencies the project actually needs
+* work with the older Bundler version shipped by Ubuntu and Linux Mint
+* document installation, testing, and running directly from a source checkout
 
 Testing and automation
-* test Ruby 3.2, 3.3, 3.4, and 4.0 with GitHub Actions 
-* add a Mint/Ubuntu package-baseline CI job
+* test Ruby 3.2, 3.3, 3.4, and 4.0 with GitHub Actions
+* test against the package versions shipped by Ubuntu and Linux Mint
 * restore the Cucumber suite with Aruba 2.4 and Cucumber 11
-* update obsolete feature steps, expectations, and fixtures
-* add regression coverage for release metadata, optical-drive errors,
-  output collisions, desktop launchers, and MusicBrainz service failures
-* add coverage for metadata-source selection, provider fallback, disabled
-  metadata, network timeouts, and manual startup scanning
-* make GTK startup tests run reliably in headless CI
+* update old feature steps, expectations, and fixtures
+* add tests for release identity, drive errors, output collisions, desktop
+  launchers, metadata failures and fallbacks, network timeouts, and manual
+  startup scanning
+* make the GTK startup tests work in headless CI
 
 Fixes and behavior
-* fix the CLI debug preference advertised as option 10 but handled as 19
-* make the GTK3 launcher work through Bundler and activate its local bundle (see aforementioned dependency issues)
-* preserve useful optical-drive detection errors and improve missing-drive guidance
-* detect output collisions per selected file instead of per album directory
-* overwrite or auto-rename only conflicting files without deleting the album folder
+* fix the CLI debug setting being shown as option 10 but handled as option 19
+* make the GTK3 launcher activate its Bundler environment automatically
+* keep useful optical-drive errors instead of replacing them with vague messages
+* check output collisions per selected file instead of per album directory
+* overwrite or rename only conflicting files without deleting the album folder
 * organize new default output paths by artist and album instead of codec
-* open logs and each unique output folder with the desktop's default applications
-* handle broken MusicBrainz responses and prevent them from wrecking a disc read.
-* wait for an explicit scan request at startup so preferences can be reviewed
-  before any disc or metadata lookup
-* report the metadata provider actually used in GTK, CLI, and rip logs,
-  including fallback from either configured primary provider
-* clearly distinguish disabled metadata from cases where MusicBrainz and GnuDB
-  both return no usable result
-* bound metadata network connection and response waits so an unavailable
-  provider falls back instead of making the application appear frozen
-* write one fresh logfile per rip session, without duplicated output when
-  multiple codecs share an album directory
-* use the current project URL and version in logs and render rip dates cleanly
+* open logs and output folders with the desktop's default applications
+* handle broken MusicBrainz responses without wrecking the disc scan
+* wait for the user to press Scan drive before reading the disc or looking up
+  metadata
+* show which metadata provider supplied the result in GTK, CLI, and rip logs,
+  including when Rubyripper falls back to the other provider
+* distinguish metadata being disabled from both providers returning nothing useful
+* put sensible time limits on metadata lookups so a dead service cannot freeze
+  the application
+* write one fresh logfile per rip without duplicate lines when codecs share a folder
+* use the current project URL and version in logs and show the rip date normally
 
 Interface and project identity
-* set the application version to 0.9.0 and point it to the maintained repository
-* replace the obsolete Ruby 1.9 check with the supported Ruby 3.2 baseline
-* clarify the rip-completion messages and rename "Open directory" to "Open folder" (modernizing terminology)
-* add startup guidance for scanning a disc or reviewing preferences first
-* update translation catalogs for the 0.9.0 release and current issue tracker
-* correct inherited language and plural metadata in seven translation catalogs
+* set the version to 0.9.0 and point the project at the maintained repository
+* replace the obsolete Ruby 1.9 check with the Ruby 3.2 minimum
+* clean up the rip-completion wording and rename "Open directory" to "Open folder"
+* explain that users can scan a disc or open Preferences first
+* refresh translations for 0.9.0 and point bug reports at the current issue tracker
+* fix incorrect language and plural metadata in seven translation catalogs
 
 ---------0.8.0 RELEASE------
 * changed 'NoSpaces' preference's behavior; it does nothing if not activated
