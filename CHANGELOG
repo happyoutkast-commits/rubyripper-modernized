@@ -2,7 +2,8 @@
 
 Compatibility and installation
 * require Ruby 3.2 or newer
-* add a Gemfile and lockfile so installs use a tested set of dependencies and resolve A LOT of dependency issues
+* add a Gemfile and lockfile so installs use a tested set of dependencies.
+  This fixes A LOT of dependency problems
 * list the Ruby, GTK, translation, and test dependencies the project actually needs
 * work with the older Bundler version shipped by Ubuntu and Linux Mint
 * document installation, testing, and running directly from a source checkout
@@ -42,8 +43,8 @@ Interface and project identity
 * clean up the rip-completion wording and rename "Open directory" to "Open folder"
 * explain that users can scan a disc or open Preferences first
 * refresh translations for 0.9.0 and point bug reports at the current issue tracker
-* fix incorrect language and plural metadata in seven translation catalogs because 
-  not everything is french.
+* fix incorrect language and plural metadata in seven translation catalogs
+  because not everything is French
 
 ---------0.8.0 RELEASE------
 * changed 'NoSpaces' preference's behavior; it does nothing if not activated

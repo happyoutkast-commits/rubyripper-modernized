@@ -81,8 +81,8 @@ including Parrot OS, but only Debian, Ubuntu, and Linux Mint are currently
 covered by testing. Parrot OS testing has been scheduled for a random time
 by a pack of wild llamas.
 
-For other distributions, use the equivalent package manager to install the 
-required dependencies.
+For other distributions, install the equivalent packages using your
+distribution's package manager.
 
 ### 2. Clone the repository
 
