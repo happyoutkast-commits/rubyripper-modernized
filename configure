@@ -99,10 +99,12 @@ def update_po
       task.domain = 'rubyripper'
       task.files = Dir.glob("lib/**/*.rb") + Dir.glob("bin/*")
       task.package_name = 'Rubyripper'
-      task.package_version = "#{$rr_version}"
-      task.xgettext_options = ["--copyright-holder", "BleskoDev",
-                               "--copyright-year", "2021",
-                               "--msgid-bugs-address", "bleskodev@ennumia.eu"]
+      task.package_version = Rubyripper::VERSION
+
+      # Keep generated catalog headers aligned with the current project.
+      task.xgettext_options = ["--copyright-holder", "Rubyripper contributors",
+                               "--copyright-year", Time.now.year.to_s,
+                               "--msgid-bugs-address", "#{Rubyripper::PROJECT_URL}/issues"]
     end
     updatePoAndMoTask.invoke
   end
