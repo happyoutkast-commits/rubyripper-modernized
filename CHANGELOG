@@ -2,7 +2,7 @@
 
 Compatibility and installation
 * require Ruby 3.2 or newer
-* add a Gemfile and lockfile so installs use a tested set of dependencies
+* add a Gemfile and lockfile so installs use a tested set of dependencies and resolve A LOT of dependency issues
 * list the Ruby, GTK, translation, and test dependencies the project actually needs
 * work with the older Bundler version shipped by Ubuntu and Linux Mint
 * document installation, testing, and running directly from a source checkout
@@ -23,16 +23,16 @@ Fixes and behavior
 * keep useful optical-drive errors instead of replacing them with vague messages
 * check output collisions per selected file instead of per album directory
 * overwrite or rename only conflicting files without deleting the album folder
-* organize new default output paths by artist and album instead of codec
+* organize new default output paths by artist and album instead of codec. Output paths remain configurable.
 * open logs and output folders with the desktop's default applications
 * handle broken MusicBrainz responses without wrecking the disc scan
 * wait for the user to press Scan drive before reading the disc or looking up
-  metadata
+  metadata so the user has a chance to configure metadata and other options first.
 * show which metadata provider supplied the result in GTK, CLI, and rip logs,
   including when Rubyripper falls back to the other provider
 * distinguish metadata being disabled from both providers returning nothing useful
 * put sensible time limits on metadata lookups so a dead service cannot freeze
-  the application
+  the application until the heat death of the universe.
 * write one fresh logfile per rip without duplicate lines when codecs share a folder
 * use the current project URL and version in logs and show the rip date normally
 
@@ -42,7 +42,8 @@ Interface and project identity
 * clean up the rip-completion wording and rename "Open directory" to "Open folder"
 * explain that users can scan a disc or open Preferences first
 * refresh translations for 0.9.0 and point bug reports at the current issue tracker
-* fix incorrect language and plural metadata in seven translation catalogs
+* fix incorrect language and plural metadata in seven translation catalogs because 
+  not everything is french.
 
 ---------0.8.0 RELEASE------
 * changed 'NoSpaces' preference's behavior; it does nothing if not activated
