@@ -1,0 +1,20 @@
+Package: rubyripper-bundled
+Version: @PACKAGE_VERSION@
+Section: sound
+Priority: optional
+Architecture: @PACKAGE_ARCHITECTURE@
+Maintainer: happyoutkast <224990119+happyoutkast-commits@users.noreply.github.com>
+Homepage: https://github.com/happyoutkast-commits/rubyripper-modernized
+Installed-Size: @INSTALLED_SIZE@
+Depends: cdparanoia, gir1.2-gtk-3.0, @SHARED_LIBRARY_DEPENDS@
+Recommends: cd-discid, cdrdao, eject, flac, lame, opus-tools, sox, vorbis-tools, wavpack, xdg-utils
+Suggests: mp3gain, normalize-audio, vorbisgain
+Provides: rubyripper
+Conflicts: rubyripper
+Replaces: rubyripper
+Description: secure audio CD ripper with a private Ruby runtime
+ Rubyripper repeatedly reads audio CD sectors and compares the results to
+ provide confidence that the extracted audio is accurate.
+ .
+ This package includes the tested Ruby runtime and Ruby gems. It does not use
+ or modify the system Ruby installation.

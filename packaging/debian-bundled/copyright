@@ -1,0 +1,15 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Rubyripper Modernized
+Source: https://github.com/happyoutkast-commits/rubyripper-modernized
+
+Files: *
+Copyright: 2007-2011 Bouke Woudstra
+           2011-2026 Rubyripper contributors
+License: GPL-3+
+ This program is free software: you can redistribute it and/or modify it under
+ the terms of the GNU General Public License as published by the Free Software
+ Foundation, either version 3 of the License, or (at your option) any later
+ version.
+ .
+ On Debian systems, the complete GPL version 3 text is available in
+ /usr/share/common-licenses/GPL-3.

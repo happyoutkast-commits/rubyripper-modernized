@@ -1,0 +1,96 @@
+name: Build bundled Debian package
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/build-bundled-deb.yml"
+      - "packaging/debian-bundled/**"
+      - "Gemfile"
+      - "Gemfile.lock"
+      - "CHANGELOG"
+      - "GPL-3.txt"
+      - "README.md"
+      - "bin/**"
+      - "lib/**"
+      - "po/**"
+      - "share/**"
+  pull_request:
+    paths:
+      - ".github/workflows/build-bundled-deb.yml"
+      - "packaging/debian-bundled/**"
+      - "Gemfile"
+      - "Gemfile.lock"
+      - "CHANGELOG"
+      - "GPL-3.txt"
+      - "README.md"
+      - "bin/**"
+      - "lib/**"
+      - "po/**"
+      - "share/**"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build on Ubuntu 22.04 baseline
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Check package scripts
+        run: |
+          bash -n packaging/debian-bundled/*.sh
+          sh -n packaging/debian-bundled/rrip_cli packaging/debian-bundled/rrip_gui
+          shellcheck \
+            packaging/debian-bundled/*.sh \
+            packaging/debian-bundled/rrip_cli \
+            packaging/debian-bundled/rrip_gui
+
+      - name: Build bundled package
+        run: ./packaging/debian-bundled/build-container.sh
+
+      - name: Inspect package metadata
+        run: |
+          dpkg-deb --info dist/rubyripper-bundled_*_amd64.deb
+          dpkg-deb --contents dist/rubyripper-bundled_*_amd64.deb
+
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rubyripper-bundled-amd64
+          path: dist/rubyripper-bundled_*_amd64.deb
+          if-no-files-found: error
+
+  smoke-test:
+    name: Test on ${{ matrix.name }}
+    needs: build
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Ubuntu 22.04
+            image: ubuntu:22.04
+          - name: Ubuntu 24.04
+            image: ubuntu:24.04
+          - name: Debian 12
+            image: debian:bookworm-slim
+          - name: Debian Testing
+            image: debian:testing-slim
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Download package artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: rubyripper-bundled-amd64
+          path: dist
+
+      - name: Run clean-container smoke test
+        run: ./packaging/debian-bundled/smoke-test-container.sh "${{ matrix.image }}"

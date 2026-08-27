@@ -1,0 +1,9 @@
+Source: rubyripper-bundled
+Section: sound
+Priority: optional
+Maintainer: happyoutkast <224990119+happyoutkast-commits@users.noreply.github.com>
+Standards-Version: 4.6.2
+
+Package: rubyripper-bundled
+Architecture: amd64
+Description: build metadata used by dpkg-shlibdeps

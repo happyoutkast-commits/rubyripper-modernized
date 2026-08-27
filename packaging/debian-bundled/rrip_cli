@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Always use the private runtime and the exact gem set shipped in the package.
+# Nothing is read from or written to the system Ruby installation.
+set -eu
+
+runtime_root=/opt/rubyripper/runtime
+application_root=/opt/rubyripper/app
+
+export PATH="${runtime_root}/bin:${PATH}"
+export BUNDLE_GEMFILE="${application_root}/Gemfile"
+export BUNDLE_FROZEN=true
+export BUNDLE_WITHOUT=development:test
+export BUNDLE_DISABLE_SHARED_GEMS=true
+export GETTEXT_PATH=/usr/share/locale
+
+exec "${runtime_root}/bin/bundle" exec \
+  "${runtime_root}/bin/ruby" "${application_root}/bin/rubyripper_cli" "$@"
