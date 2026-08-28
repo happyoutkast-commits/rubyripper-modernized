@@ -35,7 +35,7 @@ SHA-256 checksum, compiles it in a clean Ubuntu 22.04 container, and installs
 only Rubyripper's runtime gem groups. The finished package is written to:
 
 ```text
-dist/rubyripper-bundled_0.9.0-1_amd64.deb
+dist/rubyripper-bundled_0.9.1-1_amd64.deb
 ```
 
 The inner `build-package.sh` script writes temporarily to `/opt/rubyripper`
@@ -45,9 +45,9 @@ on a normal workstation.
 ## Inspect and install
 
 ```bash
-dpkg-deb --info dist/rubyripper-bundled_0.9.0-1_amd64.deb
-dpkg-deb --contents dist/rubyripper-bundled_0.9.0-1_amd64.deb
-sudo apt install ./dist/rubyripper-bundled_0.9.0-1_amd64.deb
+dpkg-deb --info dist/rubyripper-bundled_0.9.1-1_amd64.deb
+dpkg-deb --contents dist/rubyripper-bundled_0.9.1-1_amd64.deb
+sudo apt install ./dist/rubyripper-bundled_0.9.1-1_amd64.deb
 ```
 
 Use `apt`, not `dpkg -i`, so the normal GTK and audio-tool dependencies are
