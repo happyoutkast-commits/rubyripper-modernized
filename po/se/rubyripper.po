@@ -3,7 +3,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Rubyripper 0.9.0\n"
+"Project-Id-Version: Rubyripper 0.9.1\n"
 "Report-Msgid-Bugs-To: "
 "https://github.com/happyoutkast-commits/rubyripper-modernized/issues\n"
 "PO-Revision-Date: 2021-02-28 19:14+0100\n"
