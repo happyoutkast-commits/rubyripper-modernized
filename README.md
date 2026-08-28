@@ -26,7 +26,7 @@ Version 0.9.1 fixes incorrect correction details in ripping logs.
 - CI for Ruby 3.2 through 4.0, including the Ubuntu and Linux Mint package
   baseline
 
-Version 0.9.0 has been tested on Debian with Ruby 3.3.8 and on Linux Mint 22.3
+The 0.9 series has been tested on Debian with Ruby 3.3.8 and on Linux Mint 22.3
 with its packaged Ruby 3.2.3 and Bundler 2.4.20. On both systems the complete
 RSpec and Cucumber suites pass, the GTK3 interface runs from a source checkout,
 and physical-drive WAV and FLAC rips complete successfully.
