@@ -54,4 +54,23 @@ describe Log do
     expect(File).to have_received(:open)
       .once.with('/music/Tool/Lateralus/wav/ripping.log', 'w')
   end
+
+  it 'formats bad-sector byte offsets as complete sorted time ranges' do
+    messages = []
+    frame_size = AudioCalculations::BYTES_AUDIO_FRAME
+    errors = [76, 12, 0, 75, 10, 11].to_h do |sector|
+      [sector * frame_size, []]
+    end
+
+    allow(log).to receive(:add) { |message| messages << message }
+
+    log.listBadSectors('Sector mismatches: ', errors)
+
+    expect(messages.join).to eq(
+      "       Sector mismatches: \n" \
+      "00:00:00\n" \
+      "00:00:10-00:00:12\n" \
+      "00:01:00-00:01:01\n"
+    )
+  end
 end

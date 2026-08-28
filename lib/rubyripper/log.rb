@@ -118,29 +118,29 @@ class Log
 
   # Format a list of bad sectors in a rip.
   def listBadSectors(message, errors)
-    add("       #{message}\n")   
-    sequential = false
-    lastSector = false
-    
-    errors.each_pair do |key, value|
-      # TODO: Is this right?
-      if lastSector != key / BYTES_AUDIO_FRAME - 1
-        
-        # Print the last sector in the last sequence of bad sectors
-        add(toTime(lastSector)) if sequential      
-        # New sequence starts.
-        add("\n") if lastSector != false
-        add(toTime(key))
-        
-        sequential = false
-      elsif lastSector == key / BYTES_AUDIO_FRAME - 1 and !sequential
-        # In an actual sequence, rather than a one-off
-        add("-")
-        sequential = true
+    # Error keys are byte offsets. Convert them to CD sectors before turning
+    # them into mm:ss:ff timestamps, then group consecutive sectors.
+    sectors = errors.keys.map { |offset| offset / BYTES_AUDIO_FRAME }.sort
+    ranges = []
+
+    sectors.each do |sector|
+      if ranges.empty? || sector > ranges.last[1] + 1
+        ranges << [sector, sector]
+      else
+        ranges.last[1] = sector
       end
-      lastSector = key / BYTES_AUDIO_FRAME
     end
-    add("\n")
+
+    positions = ranges.map do |first_sector, last_sector|
+      if first_sector == last_sector
+        toTime(first_sector)
+      else
+        "#{toTime(first_sector)}-#{toTime(last_sector)}"
+      end
+    end
+
+    add("       #{message}\n")
+    add("#{positions.join("\n")}\n")
   end
 
   def mismatch(track, trial, indexes_with_errors, size, length)

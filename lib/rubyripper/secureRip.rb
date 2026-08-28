@@ -50,7 +50,6 @@ class SecureRip
     @sizeExpected = 0
     @timeStarted = Time.now # needed for a time break after 30 minutes
     @crcs = []
-    @correctedcrc = nil
     @digest = nil
     @rippersettingsBak = nil
   end
@@ -147,6 +146,10 @@ is #{@disc.getFileSize(track)} bytes." if @prefs.debug
   end
 
   def main(track=nil)
+    # A corrected CRC belongs only to the current track. Keeping it local
+    # prevents a corrected track from changing the next track's logfile entry.
+    correctedcrc = nil
+
     @reqMatchesAll.times{if not doNewTrial(track) ; return false end} # The amount of matches all sectors should match
     analyzeFiles(track) #If there are differences, save them in the @errors hash
     status = _("Copy OK")
@@ -171,10 +174,10 @@ is #{@disc.getFileSize(track)} bytes." if @prefs.debug
       # if enough trials are done to possibly allow corrections
       # for example is trial = 3 and only 2 matches are required a match can happen
       correctErrorPos(track) if @trial > @reqMatchesErrors
-      @correctedcrc = getCRC(track, 1)
+      correctedcrc = getCRC(track, 1)
     end
 
-    @log.finishTrack(@peakLevel, @crcs, status, @correctedcrc)
+    @log.finishTrack(@peakLevel, @crcs, status, correctedcrc)
     @log.copyMD5(@digest) # Get a MD5-digest for the logfile
     @log.updateRippingProgress(track)
     return true
