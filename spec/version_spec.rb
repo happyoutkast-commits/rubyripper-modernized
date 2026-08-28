@@ -18,7 +18,7 @@ require 'rubyripper/version'
 
 describe Rubyripper do
   it 'defines the current application version' do
-    expect(described_class::VERSION).to eq('0.9.0')
+    expect(described_class::VERSION).to eq('0.9.1')
   end
 
   it 'defines the current project URL' do
