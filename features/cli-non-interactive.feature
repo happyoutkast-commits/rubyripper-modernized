@@ -40,7 +40,7 @@ Feature: Command Line Interface non interactive commands
   Then the exit status should be 0
   And the stdout should contain exactly:
   """
-  Rubyripper version 0.9.1
+  Rubyripper version 0.9.2
 
   """
 
@@ -49,6 +49,6 @@ Feature: Command Line Interface non interactive commands
   Then the exit status should be 0
   And the stdout should contain exactly:
   """
-  Rubyripper version 0.9.1
+  Rubyripper version 0.9.2
 
   """

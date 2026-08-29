@@ -155,7 +155,9 @@ is #{@disc.getFileSize(track)} bytes." if @prefs.debug
     status = _("Copy OK")
 
     while @errors.size > 0
-      if @trial > @prefs.maxTries && @prefs.maxTries != 0
+      # @trial counts completed reads. Stop here so maxTries is the total
+      # number of reads, not the point at which one more read is allowed.
+      if @trial >= @prefs.maxTries && @prefs.maxTries != 0
         # TODO: Attack these log entries
         #       "Irrecoverable sectors at the following times:"
         @log.listBadSectors(_("Irrecoverable sectors at the following times:"),
@@ -171,9 +173,9 @@ is #{@disc.getFileSize(track)} bytes." if @prefs.debug
       # update the erronous positions for the new trial
       readErrorPos(track)
 
-      # if enough trials are done to possibly allow corrections
-      # for example is trial = 3 and only 2 matches are required a match can happen
-      correctErrorPos(track) if @trial > @reqMatchesErrors
+      # Try correction as soon as enough reads exist to satisfy the requested
+      # match count. Waiting for another read only delays a possible result.
+      correctErrorPos(track) if @trial >= @reqMatchesErrors
       correctedcrc = getCRC(track, 1)
     end
 
@@ -285,7 +287,12 @@ is #{@disc.getFileSize(track)} bytes." if @prefs.debug
       setFileIndex(files, index)
 
       while index + BYTES_WAV_CONTAINER < @disc.getFileSize(track)
-        if sectorEqual?(files[0], files[trial]) && !@errors.key?(index)
+        reference_sector = files[0].sysread(BYTES_AUDIO_FRAME)
+        comparison_sector = files[trial].sysread(BYTES_AUDIO_FRAME)
+        # Only differing data needs later voting and possible replacement.
+        sectors_differ = reference_sector != comparison_sector
+
+        if sectors_differ && !@errors.key?(index)
           setFileIndex(files, index) # set back to read again
           @errors[index] = Array.new
           files.each{|file| @errors[index] << file.sysread(BYTES_AUDIO_FRAME)}
@@ -299,10 +306,6 @@ is #{@disc.getFileSize(track)} bytes." if @prefs.debug
 
   def setFileIndex(filesArray, index)
     filesArray.each{|file| file.pos = index + BYTES_WAV_CONTAINER}
-  end
-
-  def sectorEqual?(file1, file2)
-    file1.sysread(BYTES_AUDIO_FRAME) == file2.sysread(BYTES_AUDIO_FRAME)
   end
 
   # When required matches for mismatched sectors are bigger than there are
@@ -430,14 +433,16 @@ is #{@disc.getFileSize(track)} bytes." if @prefs.debug
     hash = FileHash.new(filename)
     hash.calculate()
 
-    @digest = hash.md5
-    @crc32 = hash.crc32
+    # Trial 1 is the file retained for encoding, so the logfile MD5 must
+    # always describe that file rather than whichever trial was hashed last.
+    @digest = hash.md5 if trial == 1
+    crc32 = hash.crc32
 
     if trial == 1
       @calcPeakLevel ||= CalcPeakLevel.new()
       @peakLevel = @calcPeakLevel.getPeakLevel(filename)
     end
 
-    return @crc32
+    return crc32
   end
 end

@@ -11,7 +11,8 @@ This repository continues the work of
 [bleskodev/rubyripper](https://github.com/bleskodev/rubyripper) while
 preserving the original project history, tags, and copyright notices. Version
 0.9.0 updated Rubyripper for current Ruby releases and modern Linux systems.
-Version 0.9.1 fixes incorrect correction details in ripping logs.
+Version 0.9.1 fixes incorrect correction details in ripping logs. Version
+0.9.2 repairs secure-rip sector comparison, correction timing, and trial limits.
 
 ## Features
 
@@ -26,10 +27,11 @@ Version 0.9.1 fixes incorrect correction details in ripping logs.
 - CI for Ruby 3.2 through 4.0, including the Ubuntu and Linux Mint package
   baseline
 
-The 0.9 series has been tested on Debian with Ruby 3.3.8 and on Linux Mint 22.3
-with its packaged Ruby 3.2.3 and Bundler 2.4.20. On both systems the complete
-RSpec and Cucumber suites pass, the GTK3 interface runs from a source checkout,
-and physical-drive WAV and FLAC rips complete successfully.
+The 0.9 series has been tested on Debian with Ruby 3.3.8, Linux Mint 22.2 and
+22.3, and Parrot OS. The complete RSpec and Cucumber suites pass on the Debian
+development checkout. Package installation and the GTK3 interface were smoke
+tested on Mint and Parrot OS, including a physical-drive WAV and FLAC rip on
+Parrot OS.
 
 See the [changelog](CHANGELOG) for the complete release history.
 
@@ -77,10 +79,9 @@ The GTK frontend uses **GTK3**, not GTK4. The Ruby GTK3 gem is installed by
 Bundler; a distribution package named `ruby-gtk3` is not required. You no
 longer have to go on an archaeological expedition to find the package.
 
-These package instructions should also apply to other Debian derivatives,
-including Parrot OS, but only Debian, Ubuntu, and Linux Mint are currently
-covered by testing. Parrot OS testing has been scheduled for a random time
-by a pack of wild llamas.
+These package instructions should also apply to other Debian derivatives.
+Parrot OS has been tested successfully now that the pack of wild llamas finally
+finished scheduling it.
 
 For other distributions, install the equivalent packages using your
 distribution's package manager.

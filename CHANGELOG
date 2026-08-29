@@ -1,3 +1,15 @@
+---------0.9.2 RELEASE (2026-08-29)------
+
+Secure ripping fixes
+* fix an old comparison bug that treated matching sectors as errors while
+  overlooking the sectors that actually differed
+* use repeated reads to replace a bad first read when enough later reads agree
+* start correction as soon as the requested match count is available
+* stop at the configured maximum number of trials instead of allowing one extra
+* keep the logfile MD5 tied to the retained file that is sent to the encoders
+* add regression tests for sector comparison, correction voting, trial limits,
+  and logfile MD5 selection
+
 ---------0.9.1 RELEASE (2026-08-28)------
 
 Logfile fixes
