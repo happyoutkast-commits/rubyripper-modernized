@@ -6,7 +6,7 @@
 
 set -euo pipefail
 
-EXPECTED_VERSION="0.9.1"
+EXPECTED_VERSION="0.9.2"
 RUNTIME_ROOT="/opt/rubyripper/runtime"
 APPLICATION_ROOT="/opt/rubyripper/app"
 
