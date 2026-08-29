@@ -17,7 +17,7 @@
 require 'rubygems/version'
 
 class Rubyripper
-  VERSION = '0.9.1'
+  VERSION = '0.9.2'
   PROJECT_URL = 'https://github.com/happyoutkast-commits/rubyripper-modernized'
   MINIMUM_RUBY_VERSION = '3.2.0'
 
