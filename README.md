@@ -35,6 +35,35 @@ Parrot OS.
 
 See the [changelog](CHANGELOG) for the complete release history.
 
+## Install the bundled Debian package
+
+For most people using a 64-bit Debian-family system, the bundled `.deb` is the
+simplest way to install Rubyripper. It has been tested on Debian, Ubuntu, Linux
+Mint, and Parrot OS. The package includes its own Ruby runtime and locked Ruby
+gems without replacing or modifying the system Ruby installation.
+
+- [Download Rubyripper 0.9.2 for amd64](https://github.com/happyoutkast-commits/rubyripper-modernized/releases/download/v0.9.2/rubyripper-bundled_0.9.2-1_amd64.deb)
+- [Download the SHA-256 checksum](https://github.com/happyoutkast-commits/rubyripper-modernized/releases/download/v0.9.2/rubyripper-bundled_0.9.2-1_amd64.deb.sha256)
+- [View all Rubyripper releases](https://github.com/happyoutkast-commits/rubyripper-modernized/releases)
+
+To download, verify, and install it from a terminal:
+
+```bash
+cd /tmp
+wget https://github.com/happyoutkast-commits/rubyripper-modernized/releases/download/v0.9.2/rubyripper-bundled_0.9.2-1_amd64.deb
+wget https://github.com/happyoutkast-commits/rubyripper-modernized/releases/download/v0.9.2/rubyripper-bundled_0.9.2-1_amd64.deb.sha256
+sha256sum --check rubyripper-bundled_0.9.2-1_amd64.deb.sha256
+sudo apt update
+sudo apt install ./rubyripper-bundled_0.9.2-1_amd64.deb
+```
+
+After installation, launch Rubyripper from the desktop application menu or
+run `rrip_gui`. The command-line interface is available as `rrip_cli`.
+
+The bundled package currently supports `amd64`. Users on another architecture
+or a non-Debian distribution should use the
+[source installation](#install-from-a-source-checkout).
+
 ## Secure ripping
 
 Rubyripper assumes that read errors are generally inconsistent between
