@@ -26,7 +26,15 @@ describe SecureRip do
     )
   end
   let(:log) { double('Log').as_null_object }
-  let(:disc) { double('Disc') }
+  let(:disc) do
+    # Unresolved sectors are reported with the track size and sector count.
+    # Individual file-comparison tests replace getFileSize when needed.
+    double(
+      'Disc',
+      :getFileSize => WAVE_HEADER_BYTES + AUDIO_SECTOR_BYTES,
+      :getLengthSector => 1
+    )
+  end
   let(:file_scheme) { double('FileScheme') }
   let(:secure_rip) do
     described_class.new(
